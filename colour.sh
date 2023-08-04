@@ -7,3 +7,4 @@ echo -e "\e[34m hello \e[0m"
 echo -e "\e[35m xyazzzzzzzz \e[0m"
 
 echo -e "\e[44;33m hello world \e[0m"
+echo -e "\e[43;41m heklo world \e[0m"
