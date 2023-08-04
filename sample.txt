@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "welcome to bash scripting"
-j
+echo line1\nline2
