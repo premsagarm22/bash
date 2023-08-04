@@ -1,2 +1,6 @@
-echo -e "\033[32;45mThis text will have Green text on a Magenta background.\033[0m"
+#!/bin/bash
+
+echo -e "line5\nline6"
+
+echo -e "cloud\tdevops\tis\booming"
  
