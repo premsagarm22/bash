@@ -1,1 +1,1 @@
-date="$(date+%D)"
+date="$(date +%D)"
