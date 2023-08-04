@@ -3,4 +3,4 @@
 
 
 echo -e "\e[33m  hello this is red \e[om"
-echo -e "\e[30m hello \e[om"
+echo -e "\e[34m hello \e[om"
