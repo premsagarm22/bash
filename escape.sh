@@ -2,5 +2,5 @@
 
 echo -e "line5\nline6"
 
-echo -e "cloud\tdevops\tis\booming"
+echo -e "cloud\tdevops\tis\tbooming"
  
