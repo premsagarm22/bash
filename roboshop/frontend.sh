@@ -8,10 +8,7 @@ user_id=$(id -u)
 
 if [[ $user_id -ne 0 ]]
 then
-  echo -e "\e[32m you have signed as normall user \e[0m"
-  
-else
-  echo  -e "\e[33m kindly switch into root user to make changes \e[0m"
+  echo -e "\e[32m you have signed as normall user to make change perform as root EXAMPLE: sudo <scriptname> \e[0m"
   exit 1
 fi     
 
