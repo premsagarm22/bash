@@ -8,9 +8,9 @@ user_id=$(id -u)
 
 if [[ $user_id -ne 0 ]]
 then
-  echo "you have signed as normall user"
+  echo -e "\e[32m you have signed as normall user \e[0m"
 else
-  echo "kindly switch into root user to make changes"
+  echo  -e "\e[33m kindly switch into root user to make changes \e[0m"
 fi     
 
 # systemctl enable nginx 
