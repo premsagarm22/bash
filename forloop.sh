@@ -14,7 +14,7 @@ for val in 10 20 30 40 50 ; do
     echo "Value for the loop is $val"
 done
 
-for i in {0:14}
+for i in {0..14}
 do 
   echo $i
 done  
