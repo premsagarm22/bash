@@ -12,9 +12,9 @@ then
   exit 1
 fi     
 
-echo "configuring frontend"
+#echo "configuring frontend"
 
-yum install nginx -y
+#yum install nginx -y
 
 # systemctl enable nginx 
 # systemctl start nginx 
