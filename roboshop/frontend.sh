@@ -2,7 +2,15 @@
 
 echo "i am frontend"
 
- yum install nginx -y
+yum install nginx -y
+
+user_id =$(id -u)
+if [[ user_id -eq 0 ]]; then
+  echo "you have signed ad root user"
+else
+  echo "kindly switch into root user to make changes"
+fi     
+
 # systemctl enable nginx 
 # systemctl start nginx 
 
