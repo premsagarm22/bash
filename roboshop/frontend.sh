@@ -6,7 +6,7 @@ yum install nginx -y
 
 user_id=$(id -u)
 
-if [[ $user_id -eq 0 ]]
+if [[ $user_id -ne 0 ]]
 then
   echo "you have signed ad root user"
 else
