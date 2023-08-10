@@ -8,7 +8,7 @@ user_id=$(id -u)
 
 if [[ $user_id -ne 0 ]]
 then
-  echo "you have signed ad root user"
+  echo "you have signed as normall user"
 else
   echo "kindly switch into root user to make changes"
 fi     
