@@ -5,7 +5,7 @@ echo "i am frontend"
 yum install nginx -y
 
 user_id =$(id -u)
-if [[ user_id -eq 0 ]]; then
+if [[ $user_id -eq 0 ]]; then
   echo "you have signed ad root user"
 else
   echo "kindly switch into root user to make changes"
