@@ -31,7 +31,8 @@ echo -n "start nginx "
 systemctl enable nginx
 systemctl start nginx
 exit 3
- func()
+
+func()
 # systemctl enable nginx 
 # systemctl start nginx 
 
