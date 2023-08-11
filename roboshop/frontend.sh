@@ -16,7 +16,7 @@ date=$(date)
 
 echo "configuring frontend"
 
-yum install nginx -y &>> /tmp/frontend.log  echo $date
+yum install nginx -y echo $date &>> /tmp/frontend.log
 echo $date
 
 # systemctl enable nginx 
