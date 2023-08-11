@@ -16,8 +16,7 @@ echo  -n -e "\e[35m configuring frontend \e[0m"
 
 yum install nginx -y &>> /tmp/frontend.log
 
-if [[ $? -eq 0 ]]
-then
+if [ $? -eq 0 ]; then
   echo "sucees"
 else
   echo "failed"
