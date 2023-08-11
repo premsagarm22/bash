@@ -13,7 +13,7 @@ then
 fi     
 
 
-#echo "configuring frontend"
+echo "configuring frontend"
 
 #yum install nginx -y
 
