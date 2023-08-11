@@ -12,9 +12,9 @@ then
   exit 1
 fi     
 
-echo  -n -e "\e[35m configuring frontend \e[0m]"
+echo  -n -e "\e[35m configuring frontend \e[0m"
 
-yum install nginx -y echo $date &>> /tmp/frontend.log
+yum install nginx -y &>> /tmp/frontend.log
 
 if [[ $? -eq 0 ]]; then
   echo "failed"
