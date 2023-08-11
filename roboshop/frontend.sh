@@ -15,7 +15,11 @@ fi
 echo -e "\e[35m configuring frontend \e[0m]"
 
 yum install nginx -y echo $date &>> /tmp/frontend.log
-echo $date
+if [[ $? -eq 0 ]]; then
+  echo "failed"
+else
+  echo "Succes"
+fi    
 
 # systemctl enable nginx 
 # systemctl start nginx 
