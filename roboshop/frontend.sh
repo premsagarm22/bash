@@ -24,13 +24,13 @@ funct(){
   exit 2
 fi
 }    
-
+funct()
 
 echo -n "start nginx "
 
 systemctl enable nginx &>> /tmp/fronted.log
 systemctl start nginx  &>> /tmp/fronted.log
-exit 3
+funct()
 
 func()
 exit 4
