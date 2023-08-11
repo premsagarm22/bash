@@ -16,17 +16,20 @@ echo  -n -e "\e[35m configuring frontend \e[0m"
 
 yum install nginx -y &>> /tmp/frontend.log
 
-if [ $? -eq 0 ]; then
-  echo "sucees"
-else
-  echo "failed"
+funct(){
+   if [ $? -eq 0 ]; then
+     echo "sucees"
+   else
+     echo "failed"
   exit 2
-fi    
+fi
+}    
+
 
 echo -n "start nginx "
 
 systemctl enable nginx
-flerlf
+systemctl start nginx
 exit 3
 
 # systemctl enable nginx 
