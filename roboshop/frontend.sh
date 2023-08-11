@@ -26,7 +26,7 @@ fi
 echo -n "start nginx "
 
 systemctl enable nginx
-systemctl sart nginx
+flerlf
 exit 3
 
 # systemctl enable nginx 
