@@ -18,9 +18,9 @@ yum install nginx -y &>> /tmp/frontend.log
 
 if [[ $? -eq 0 ]]
 then
-  echo "failed"
+  echo "sucees"
 else
-  echo "Succes"
+  echo "failed"
 fi    
 
 # systemctl enable nginx 
