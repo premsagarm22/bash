@@ -26,8 +26,7 @@ fi
 }    
 funct()
 
-echo -n "start nginx "
-
+echo -n "start nginx"
 systemctl enable nginx &>> /tmp/fronted.log
 systemctl start nginx  &>> /tmp/fronted.log
 funct()
