@@ -20,7 +20,14 @@ if [ $? -eq 0 ]; then
   echo "sucees"
 else
   echo "failed"
+  exit 2
 fi    
+
+echo -n "start nginx "
+
+systemctl enable nginx
+systemctl start nginx
+exit 3
 
 # systemctl enable nginx 
 # systemctl start nginx 
