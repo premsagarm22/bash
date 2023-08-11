@@ -28,11 +28,12 @@ fi
 
 echo -n "start nginx "
 
-systemctl enable nginx
-systemctl start nginx
+systemctl enable nginx &>> /tmp/fronted.log
+systemctl start nginx  &>> /tmp/fronted.log
 exit 3
 
 func()
+exit 4
 # systemctl enable nginx 
 # systemctl start nginx 
 
