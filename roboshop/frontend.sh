@@ -12,9 +12,7 @@ then
   exit 1
 fi     
 
-date=$(date)
-
-echo "configuring frontend"
+echo -e "\e[35m configuring frontend \e[0m]"
 
 yum install nginx -y echo $date &>> /tmp/frontend.log
 echo $date
