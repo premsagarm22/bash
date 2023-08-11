@@ -8,9 +8,10 @@ user_id=$(id -u)
 
 if [[ $user_id -ne 0 ]]
 then
-  echo -e "\e[32m you have signed as normall user to make change perform as root EXAMPLE: sudo <scriptname> \e[0m"
+  echo -e "\e[32m you have signed as normall user to make change perform as root /n \t EXAMPLE: sudo <scriptname> \e[0m"
   exit 1
 fi     
+
 
 #echo "configuring frontend"
 
