@@ -15,7 +15,7 @@ fi
 
 echo "configuring frontend"
 
-yum install nginx -y &>> /tmp/frontend.log
+yum install nginx -y &>> /tmp/frontend.log && echo "$date"
 
 # systemctl enable nginx 
 # systemctl start nginx 
