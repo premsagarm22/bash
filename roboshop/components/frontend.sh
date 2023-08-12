@@ -26,3 +26,4 @@ yum install nginx -y
 # rm -rf frontend-main README.md
 # mv localhost.conf /etc/nginx/default.d/roboshop.conf
 comm
+exit 2
