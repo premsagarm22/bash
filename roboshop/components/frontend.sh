@@ -19,4 +19,4 @@ if [ $user_id -ne 0 ]; then
 # mv static/* .
 # rm -rf frontend-master README.md
 # mv localhost.conf /etc/nginx/default.d/roboshop.conf
-# systemctl restart nginx 
+# systemctl restart nginx
