@@ -5,6 +5,7 @@ echo "starting frontend"
 user_id=$(id -u)
 if [ $user_id -ne 0 ]; then
   echo "you needs to be root user to perform this "
+  exit 1
 
 yum install nginx -y
 
