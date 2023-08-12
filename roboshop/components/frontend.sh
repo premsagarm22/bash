@@ -5,11 +5,11 @@ echo "starting frontend"
 user_id=$(id -u)
 if [ $user_id -ne 0 ]; then
   echo "you needs to be root user to perform this "
-   
+
 yum install nginx -y
 
 
-
+<<comm
 # yum install nginx -y
 # systemctl enable nginx
 # systemctl start nginx
@@ -24,3 +24,4 @@ yum install nginx -y
 # mv static/* .
 # rm -rf frontend-main README.md
 # mv localhost.conf /etc/nginx/default.d/roboshop.conf
+comm
