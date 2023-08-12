@@ -6,9 +6,8 @@ user_id=$(id -u)
 
 if [[ $user_id -ne 0 ]]
 then
-  echo "you needs to be sudo user \t Example: sudo <filename>"
+  echo -e "\e[32m you needs to be sudo user \t Example: sudo <filename>\e[0m]"
 # yum install nginx -y
-dd
 # systemctl enable nginx 
 # systemctl start nginx 
 
