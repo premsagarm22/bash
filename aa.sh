@@ -7,3 +7,4 @@
 #echo -e "currently usage is the \e[33m$useage \e[0m"
 exit_code=$?
 echo $exit_code
+ss
