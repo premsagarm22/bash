@@ -4,7 +4,7 @@ echo "starting frontend"
 
 user_id=$(id -u)
 if [ $user_id -ne 0 ]; then
-  echo -e "\e[33m you needs to be root user to perform this\e[0m]" \n\t\t Example: sudo <filename>
+  echo -e "\e[33m you needs to be root user to perform this\e[0m] \n\t\t Example: sudo <filename>"
   exit 1
 fi  
 
