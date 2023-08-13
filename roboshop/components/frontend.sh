@@ -10,10 +10,10 @@ fi
 
 echo "installing nginx"
 
-yum install nginx -y
-systemctl enable nginx
-systemctl start nginx
-exit 2
+# #yum install nginx -y
+# systemctl enable nginx
+# systemctl start nginx
+# exit 2
 
 <<comm
 # yum install nginx -y
