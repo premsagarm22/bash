@@ -21,7 +21,11 @@ if [ $user_id -ne 0 ]; then
   exit 3
 fi  
 
+echo "downloading code"
+
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+
+echo "adding content to web "
 
 cd /usr/share/nginx/html
 rm -rf *
