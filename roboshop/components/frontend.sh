@@ -37,6 +37,7 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 exit 4
 
+echo "your frontend installed sucessfully"
 
 <<comm
 # yum install nginx -y
