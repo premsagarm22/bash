@@ -17,10 +17,10 @@ systemctl enable nginx
 systemctl start nginx
 exit 2
 
-if [ $user_id -ne 0 ]; then
+# if [ $user_id -ne 0 ]; then
   echo -e "\e[33m you needs to be root user to perform this\e[0m] \n\t\t Example: sudo <filename>"
   exit 3
-fi  
+# fi  
 
 echo "downloading code"
 
