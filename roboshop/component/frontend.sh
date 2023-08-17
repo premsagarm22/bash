@@ -8,4 +8,6 @@ if [ $user_id -ne 0 ]; then
 fi
 
 echo "configuring frontend"
+yum install nginx -y
+echo $?
 
