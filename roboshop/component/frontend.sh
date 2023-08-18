@@ -21,6 +21,7 @@ statusfunction(){
     fi
 }
 
+statusfunction $?
 
 echo -n "starting nginx \n"
 systemctl enable nginx
