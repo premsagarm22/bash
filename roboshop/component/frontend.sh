@@ -25,3 +25,8 @@ if [ $? -eq 0 ]; then
 else
   echo -e "\e[31m failed \e[0m"  
 fi
+
+
+echo "downloading the frontend component"
+
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
