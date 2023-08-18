@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-user_id=$(id -u)
+# user_id=$(id -u)
 
 usr_id=$(id -u)
 
