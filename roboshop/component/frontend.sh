@@ -49,6 +49,8 @@ statusfunction $?
 echo -n "moving to location"
 mv frontend-main/* .
 mv static/* .
+
+echo $?
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
