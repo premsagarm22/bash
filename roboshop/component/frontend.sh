@@ -1,16 +1,17 @@
 #!/bin/bash 
 
 user_id=$(id -u)
+component=${frontend}
 
 if [ $user_id -ne 0 ]; then
   echo -e "\e[32m script is executed by the root user or with sudo privilege \e[0m"
   exit 1
 fi
 
-echo -e "\e[35m configuring frontend \e[0m"
+echo -e "\e[35m configuring ${component} \e[0m"
 
-echo -n "installing frontend :"
-yum install nginx -y >> /tmp/frontend.log
+echo -n "installing ${component} :"
+yum install nginx -y >> /tmp/component.log
 
 statusfunction(){
 
