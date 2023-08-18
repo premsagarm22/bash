@@ -9,7 +9,7 @@ fi
 
 echo -e "\e[35m configuring frontend \e[0m \n"
 echo -n "installing frontend :"
-yum install nginx -y
+yum install nginx -y >> /tmp/frontend.log
 if [ $? -eq 0 ]; then
   echo -e "\e[33m sucessfully installed \e[0m"
 else
