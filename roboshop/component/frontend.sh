@@ -8,7 +8,7 @@ if [ $user_id -ne 0 ]; then
 fi
 
 echo -e "\e[35m configuring frontend \e[0m \n"
-echo "installing frontend "
+echo -n "installing frontend "
 yum install nginx -y
 if [ $? -eq 0 ]; then
   echo -e "\e[33m sucessfully installed \e[0m"
