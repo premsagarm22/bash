@@ -7,7 +7,8 @@ if [ $user_id -ne 0 ]; then
   exit 1
 fi
 
-echo "configuring frontend"
+echo -e "\e[35m configuring frontend \e[0m \n"
+echo "installing frontend "
 yum install nginx -y
 echo $?
 
