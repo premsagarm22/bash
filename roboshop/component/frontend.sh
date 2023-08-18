@@ -1,5 +1,5 @@
 #!/bin/bash 
-set -e
+
 user_id=$(id -u)
 
 if [ $user_id -ne 0 ]; then
@@ -25,7 +25,7 @@ statusfunction(){
 statusfunction $?
 
 echo -n "starting nginx "
-systemktl enable nginx
+systemctl enable nginx
 systemctl start nginx
 
 statusfunction $?
