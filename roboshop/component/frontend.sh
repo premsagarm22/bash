@@ -40,13 +40,13 @@ echo -n "cleanining frontend "
 
 cd /usr/share/nginx/html
 rm -rf *
-
 statusfunction $?
 
 echo -n "unziping frontend"
 unzip /tmp/frontend.zip
-
 statusfunction $?
+
+echo -n "moving to location"
 mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
