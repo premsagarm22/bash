@@ -2,7 +2,7 @@
 
 user_id=$(id -u)
 
-if [ $user_id -ne 0 ]; then
+if [ $1 -ne 0 ]; then
   echo -e "\e[32m script is executed by the root user or with sudo privilege \e[0m"
   exit 1
 fi
@@ -23,7 +23,7 @@ statusfunction(){
 
 statusfunction $?
 
-echo -n "starting nginx \n"
+echo -n "starting nginx "
 systemctl enable nginx
 systemctl start nginx
 
