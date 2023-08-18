@@ -46,13 +46,15 @@ echo -n "unziping frontend"
 unzip /tmp/frontend.zip
 statusfunction $?
 
-echo -n "moving to location"
+echo "moving to location"
 mv frontend-main/* .
 mv static/* .
 
 echo $?
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
+
+echo $?
 
 
 # if [ $? -eq 0 ]; then
