@@ -21,7 +21,7 @@ statusfunction(){
 }
 
 
-echo -n "starting nginx"
+echo -n "starting nginx \n"
 systemctl enable nginx
 systemctl start nginx
 
