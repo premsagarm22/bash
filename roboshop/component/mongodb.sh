@@ -30,9 +30,9 @@ statusfunction $?
 
 echo -n "downloading ${component}"
 
-yum install -y mongodb-org
-systemctl enable mongod
-systemctl start mongod
+yum install -y ${component}-org
+systemctl enable ${component}
+systemctl start ${component}
 
 
 statusfunction $?
