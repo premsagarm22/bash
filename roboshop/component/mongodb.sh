@@ -33,4 +33,10 @@ echo "hi hello"
 echo -n "installing ${component} "
 yum install -y mongodb.org &>> ${log}
 statusfunction $?
-echo "$?"
+echo  $?
+
+echo -n "starting mongodb: "
+systemctl enable mongod
+systemctl start mongod
+statusfunction $?
+
