@@ -31,8 +31,8 @@ statusfunction $?
 echo -n "downloading ${component}"
 
 yum install -y ${component}-org
-systemctl enable ${component}
-systemctl start ${component}
+# systemctl enable ${component
+# systemctl start ${component}
 
 
 statusfunction $?
