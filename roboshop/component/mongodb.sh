@@ -32,3 +32,4 @@ statusfunction $?
 echo "hi hello"
 echo -n "installing ${component} "
 yum install -y mongodb.org &>> ${log}
+statusfunction $?
