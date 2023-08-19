@@ -9,12 +9,6 @@ if [ $user_id -ne 0 ]; then
   exit 1
 fi
 
-echo -e "\e[35m configuring ${component}\e[0m"
-
-echo -n "installing ${component} :"
-
-curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
-
 statusfunction(){
 
     if [ $1 -eq 0 ]; then
@@ -25,5 +19,11 @@ statusfunction(){
     fi
 }
 
-echo "downloading content"
+
+echo -e "\e[35m configuring ${component}\e[0m"
+
+echo -n "installing ${component} :"
+
+curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
+
 statusfunction $?
