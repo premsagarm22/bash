@@ -14,7 +14,6 @@ echo -e "\e[35m configuring ${component}\e[0m"
 echo -n "installing ${component} :"
 
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
-statusfunction $?
 
 statusfunction(){
 
@@ -26,14 +25,16 @@ statusfunction(){
     fi
 }
 
+echo "downloading content"
 statusfunction $?
 
 # curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
+echo -n "displaying the status"
 statusfunction $?
 
-echo -n "downloading ${component}"
+# echo -n "downloading ${component}"
 
-yum install -y ${component}-org
+# yum install -y ${component}-org
 # systemctl enable ${component
 # systemctl start ${component}
 
