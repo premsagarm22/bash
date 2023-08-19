@@ -31,7 +31,7 @@ statusfunction $?
 
 echo "hi hello"
 echo -n "installing ${component}:  "
-yum install -y mongodb.org
+yum install -y ${component}.org
 
 echo -n "starting mongodb: "
 systemctl enable mongod
