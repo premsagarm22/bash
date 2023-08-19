@@ -12,7 +12,9 @@ fi
 echo -e "\e[35m configuring ${component}\e[0m"
 
 echo -n "installing ${component} :"
-yum install nginx -y >> /tmp/$component.log
+
+curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
+statusfunction $?
 
 statusfunction(){
 
