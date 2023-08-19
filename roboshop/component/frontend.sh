@@ -8,7 +8,7 @@ if [ $user_id -ne 0 ]; then
   exit 1
 fi
 
-echo -e "\e[35m configuring ${component} \e[0m"
+echo -e "\e[35m configuring t}${componen \e[0m"
 
 echo -n "installing ${component} :"
 yum install nginx -y >> /tmp/component.log
