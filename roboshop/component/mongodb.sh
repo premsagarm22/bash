@@ -43,3 +43,5 @@ systemctl enable mongod
 systemctl start mongod
 statusfunction $?
 
+
+
