@@ -50,7 +50,7 @@ statusfunction $?
 
 echo -n "Extracing the ${component} Schema:"
 cd /tmp 
-unzip -o ${coponent}.zip &>> ${LOGFILE} 
+unzip -o ${component}.zip &>> ${LOGFILE} 
 statusfunction $?
 
 
