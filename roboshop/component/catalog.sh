@@ -62,7 +62,7 @@ statusfunction $?
 
 echo -n "updating the ${component} systemfile "
 sed -ie "s/MONGO_DNSNAME/mongodb.roboshop/" /home/${appuser}/${component}/systemd.service
-mv /home/roboshop/catalogue/systemd.service /etc/systemdsystem/catalogue.service
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 statusfunction $?
 
 
@@ -72,3 +72,14 @@ systemctl start catalogue
 systemctl enable catalogue
 systemctl status catalogue -l
 statusfunction $?
+# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+# systemctl daemon-reload
+# systemctl start catalogue
+# systemctl enable catalogue
+# systemctl status catalogue -l
+
+# NOTE: You should see the log saying `connected to MongoDB`, then only your catalogue
+# will work and can fetch the items from MongoDB
+
+# Ref Log:
+# {"level":"info","time":1656660782066,"pid":12217,"hostname":"ip-172-31-13-123.ec2.internal","msg":"MongoDB connected","v":1}
