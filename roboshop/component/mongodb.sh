@@ -31,7 +31,8 @@ statusfunction $?
 
 echo "hi hello"
 echo -n "installing ${component}:  "
-yum install -y ${component}.org
+yum install -y ${component}.org 
+statusfunction $?
 
 echo -n "Enabling the ${COMPONENT} visibility :"
 sed  -ie 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
