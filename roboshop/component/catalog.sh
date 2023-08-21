@@ -4,6 +4,8 @@ set -e
 
 user_id=$(id -u)
 component=catalog
+appuser=roboshop
+
 
 if [ $user_id -ne 0 ]; then
   echo -e "\e[32m script is executed by the root user or with sudo privilege \e[0m"
@@ -29,3 +31,10 @@ statusfunction $?
 echo -n "installing Nodejs :"
 yum install nodejs -y
 statusfunction $?
+
+id ${appuser}
+if [ $? --ne 0]; then
+  echo -n "creating application user account :"
+  useradd roboshop
+  statusfunction $?
+fi    
