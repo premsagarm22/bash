@@ -22,7 +22,7 @@ statusfunction(){
     fi
 }
 
-echo -e "\e[35m configuring t}${component \e[0m"
+echo -e "\e[35m configuring t}${component} \e[0m"
 
 echo -n "installing ${component} :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
@@ -34,7 +34,7 @@ statusfunction $?
 
 id ${appuser}
 if [ $? --ne 0]; then
-echo -n "creating application user account :"''
+  echo "creating application user account :"
   useradd roboshop
   statusfunction $?
 fi    
