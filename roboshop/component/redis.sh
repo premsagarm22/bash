@@ -29,13 +29,12 @@ yum install redis-6.2.12 -y
 statusfunction $?
 
 echo -n "updating bind ip-address: "
-cd /etc/redis.conf
-sed -ie "s/127.0.0.1/0.0.0.0g"
+sed -ie "s/127.0.0.1/0.0.0.0g" /etc/redis.conf
+
 statusfunction $?
 
 echo -n "updating bind ip-address: "
-cd  /etc/redis/redis.conf
-sed -ie "s/127.0.0.1/0.0.0.0g"
+sed -ie "s/127.0.0.1/0.0.0.0g" /etc/redis/redis.conf
 statusfunction $?
 
 echo -n "starting database : "
