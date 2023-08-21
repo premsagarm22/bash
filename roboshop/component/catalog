@@ -26,7 +26,6 @@ echo -n "installing ${component} :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
 statusfunction $?
 
-
-echo -n "installing nodejs :"
+echo -n "installing nodejs"
 yum install nodejs -y
 statusfunction $?
