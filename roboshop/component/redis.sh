@@ -33,6 +33,10 @@ sed -ie "s/127.0.0.1/0.0.0.0/g" /etc/redis.conf
 
 statusfunction $?
 
+echo -n "updating bind ip-address: "
+sed -ie "s/127.0.0.1/0.0.0.0/g" /etc/redis/redis.conf
+statusfunction $?
+
 echo -n "starting database : "
 systemctl enable redis
 systemctl start redis
