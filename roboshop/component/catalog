@@ -29,13 +29,5 @@ statusfunction(){
     fi
 }
 
-statusfunction $?
 
-echo -n "starting nginx "
-systemctl enable nginx
-systemctl start nginx
-
-statusfunction $?
-
-echo -n "downloading the frontend component"
 
