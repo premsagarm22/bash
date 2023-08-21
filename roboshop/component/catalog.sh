@@ -44,6 +44,7 @@ statusfunction $?
 
 echo -n "copying the ${component} to ${appuser} home diectory: "
 cd /home/${appuser} 
-unzip /tmp/${component}.zip
+rm -rf ${component}
+unzip -o /tmp/${component}.zip
 statusfunction $?
 
