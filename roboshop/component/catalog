@@ -8,6 +8,16 @@ if [ $user_id -ne 0 ]; then
   exit 1
 fi
 
+statusfunction(){
+
+    if [ $1 -eq 0 ]; then
+       echo -e "\e[33m sucessfully installed \e[0m"
+    else
+       echo -e "\e[31m failed \e[0m"  
+       exit 1
+    fi
+}
+
 echo -e "\e[35m configuring t}${component \e[0m"
 
 echo -n "installing ${component} :"
@@ -18,13 +28,3 @@ statusfunction $?
 echo -n "installing nodejs :"
 yum install nodejs -y
 statusfunction $?
-
-statusfunction(){
-
-    if [ $1 -eq 0 ]; then
-       echo -e "\e[33m sucessfully installed \e[0m"
-    else
-       echo -e "\e[31m failed \e[0m"  
-       exit 1
-    fi
-}
