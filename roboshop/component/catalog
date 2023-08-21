@@ -28,6 +28,3 @@ statusfunction(){
        exit 2
     fi
 }
-
-
-
