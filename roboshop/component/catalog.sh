@@ -42,4 +42,8 @@ echo -n "downlaoding the ${component} : "
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 statusfunction $?
 
+echo -n "copying the ${component} to ${appuser} home diectory: "
+cd /home/${appuser} 
+unzip /tmp/${component}.zip
+statusfunction $?
 
