@@ -43,7 +43,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 statusfunction $?
 
 echo -n "copying the ${component} to ${appuser} home diectory: "
-cd /home/${appuser}
+cd /home/${appuser}/
 rm -rf ${component} >> ${log}
 unzip -o /tmp/${component}.zip
 statusfunction $?
