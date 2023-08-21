@@ -37,3 +37,9 @@ if [ $? -ne 0 ]; then
   useradd roboshop
   statusfunction $?
 fi    
+
+echo -n "downlaoding the ${component} : "
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+statusfunction $?
+
+
