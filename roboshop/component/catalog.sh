@@ -47,6 +47,6 @@ echo -n "copying the ${component} to ${appuser} home diectory: "
 # rm -rf ${component} >> ${log}
 # unzip -o /tmp/${component}.zi
 cd /home/roboshop
-unzip /tmp/${component}.zip
+unzip /tmp/catalogue.zip
 statusfunction $?
 
