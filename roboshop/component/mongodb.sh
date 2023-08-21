@@ -50,7 +50,7 @@ statusfunction $?
 
 echo -n "Extracing the ${component} Schema:"
 cd /tmp 
-unzip -o ${component}.zip &>> ${LOGFILE} 
+unzip -o ${coponent}.zip &>> ${LOGFILE} 
 statusfunction $?
 
 
@@ -61,4 +61,3 @@ mongo < users.js        &>>  ${LOGFILE}
 statusfunction $?
 
 echo -e "\e[35m ${component} Installation Is Completed \e[0m \n"
-set -x
