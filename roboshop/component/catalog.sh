@@ -59,3 +59,16 @@ echo -n "generating the ${component} artifacts :"
 cd /home/${appuser}/${component}/
 npm install 
 statusfunction $?
+
+echo -n "updating the ${component} systemfile "
+sed -ie "s/MONGO_DNSNAME/mongodb.roboshop/" /home/${appuser}/${component}/systemd.service
+mv /home/roboshop/catalogue/systemd.service /etc/systemdsystem/catalogue.service
+statusfunction $?
+
+
+echo -n "starting the catalogue service: "
+systemctl daemon-reload
+systemctl start catalogue
+systemctl enable catalogue
+systemctl status catalogue -l
+statusfunction $?
