@@ -12,7 +12,7 @@ fi
 
 statusfunction(){
 
-    if [ $1 -eq 0 ]; then
+    if [ $? -eq 0 ]; then
        echo -e "\e[33m sucessfully installed \e[0m"
     else
        echo -e "\e[31m failed \e[0m"  
@@ -24,4 +24,8 @@ echo -e "\e[35m configuring t}${component \e[0m"
 
 echo -n "installing ${component} :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+statusfunction $?
+
+echo -n "installing Nodejs :"
+yum install nodejs -y
 statusfunction $?
