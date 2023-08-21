@@ -25,7 +25,3 @@ echo -e "\e[35m configuring t}${component \e[0m"
 echo -n "installing ${component} :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
 statusfunction $?
-
-echo -n "installing nodejs"
-yum install nodejs -y
-statusfunction $?
