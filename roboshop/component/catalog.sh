@@ -2,7 +2,7 @@
 
 
 user_id=$(id -u)
-component=catalog
+component=catalogue
 appuser=roboshop
 log="/tmp/${component}.log"
 
@@ -50,3 +50,7 @@ cd /home/roboshop
 unzip /tmp/catalogue.zip
 statusfunction $?
 
+echo -n "changing the ownership"
+mv ${component}-main ${component}
+chown -R ${appuser}-${appuser} /home/${appuser}/${component}
+statusfunction $?
