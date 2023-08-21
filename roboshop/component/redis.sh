@@ -22,7 +22,7 @@ curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.r
 statusfunction $?
 
 echo -n "installing redis : " 
-yum install redis-6.2.11 -y
+yum install redis-6.3.11 -y
 statusfunction $?
 
 echo -n "updating bind ip-address: "
