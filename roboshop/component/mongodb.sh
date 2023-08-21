@@ -30,8 +30,8 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 statusfunction $?
 
 echo "hi hello"
-echo -n "installing ${component}:  "
-yum install -y ${component}.org 
+echo -n "installing ${component} :  "
+yum install -y mongodb-org 
 statusfunction $?
 
 echo -n "Enabling the ${COMPONENT} visibility :"
