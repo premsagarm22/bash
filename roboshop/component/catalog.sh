@@ -32,7 +32,7 @@ echo -n "installing Nodejs :"
 yum install nodejs -y
 statusfunction $?
 
-id ${appuser}
+id "${appuser}"
 if [ $? -ne 0]; then
   echo -n "creating application user account :"
   useradd roboshop
