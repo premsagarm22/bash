@@ -48,8 +48,5 @@ echo -n "copying the ${component} to ${appuser} home diectory: "
 # unzip -o /tmp/${component}.zi
 cd /home/roboshop
 unzip /tmp/${component}.zip
-mv catalogue-main catalogue
-cd /home/roboshop/catalogue
-npm install
 statusfunction $?
 
