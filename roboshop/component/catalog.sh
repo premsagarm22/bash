@@ -4,7 +4,7 @@
 user_id=$(id -u)
 component=catalog
 appuser=roboshop
-log="/tmp/{$component}.log"
+log="/tmp/${component}.log"
 
 if [ $user_id -ne 0 ]; then
   echo -e "\e[32m script is executed by the root user or with sudo privilege \e[0m"
