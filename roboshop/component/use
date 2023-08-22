@@ -44,7 +44,7 @@ echo -n "copying the ${component} to ${appuser} home diectory: "
 # rm -rf ${component} >> ${log}
 # unzip -o /tmp/${component}.zi
 cd /home/roboshop
-unzip /tmp/user.zip
+unzip -o /tmp/user.zip
 statusfunction $?
 
 echo -n "changing the ownership : "
