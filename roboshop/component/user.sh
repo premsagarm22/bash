@@ -1,7 +1,6 @@
 #!/bin/bash 
 
-#!/bin/bash
-
+set -e
 
 user_id=$(id -u)
 component=user
