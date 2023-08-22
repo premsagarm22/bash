@@ -39,19 +39,11 @@ fi
 
 echo -n "Downloading the ${component}: "
 curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
-unzip -o /tmp/user.zip >> ${log}
-statusfunction
-
-echo -n "Copying the ${component} to ${appuser} home directory: "
-cd /home/${appuser}
+cd /home/roboshop
+unzip /tmp/user.zip
 mv user-main user
-chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
-statusfunction $?
-
-echo -n "Generating the ${component} artifacts: "
-cd /home/${appuser}/${component}/
-npm install 
-statusfunction $?
+cd /home/roboshop/user
+npm install
  
 echo -n "Updating the ${component} systemd file: "
 sed -i "s/MONGO_ENDPOINT/mongodb.roboshop/g"  /home/roboshop/user/systemd.service
