@@ -35,6 +35,7 @@ unzip /tmp/user.zip
 statusfunction $?
 
 echo -n "moving the info  roboshop: "
+rm -rf user
 mv user-main user
 cd /home/roboshop/
 npm install
