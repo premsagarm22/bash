@@ -65,7 +65,7 @@ statusfunction $?
 
 
 echo -n "starting the catalogue service: "
-mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
+mv /home/roboshop/user/user/systemd.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl enable user
 systemctl restart user
