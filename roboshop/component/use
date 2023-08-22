@@ -37,7 +37,7 @@ statusfunction $?
 echo -n "moving the info  roboshop: "
 mv user-main user
 chown -R *
-cd /home/roboshop/user
+cd /home/roboshop/
 npm install
 statusfunction $?
 
