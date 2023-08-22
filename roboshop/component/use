@@ -44,7 +44,7 @@ unzip -o /tmp/user.zip >> ${log}
 statusfunction
 
 echo -n "Copying the ${component} to ${appuser} home directory: "
-cd /home/${appuser} || exit 1
+cd /home/${appuser} 
 mv ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
