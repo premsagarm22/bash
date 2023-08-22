@@ -1,0 +1,73 @@
+
+user_id=$(id -u)
+component=user
+appuser=roboshop
+log="/tmp/${component}.log"
+
+if [ $user_id -ne 0 ]; then
+  echo -e "\e[32m script is executed by the root user or with sudo privilege \e[0m"
+  exit 1
+fi
+
+statusfunction(){
+
+    if [ $? -eq 0 ]; then
+       echo -e "\e[33m sucessfully installed \e[0m"
+    else
+       echo -e "\e[31m failed \e[0m"  
+       exit 1
+    fi
+}
+
+echo -e "\e[35m configuring t}${component} \e[0m"
+
+echo -n "installing ${component} :"
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+statusfunction $?
+
+echo -n "installing Nodejs :"
+yum install nodejs -y
+statusfunction $?
+
+id ${appuser} &>> ${log}
+if [ $? -ne 0 ]; then
+  echo -n "creating application user account :"
+  useradd roboshop
+  statusfunction $?
+fi    
+
+echo -n "downlaoding the ${component} : "
+curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"statusfunction $?
+
+echo -n "copying the ${component} to ${appuser} home diectory: "
+# cd /home/${appuser}/
+# rm -rf ${component} >> ${log}
+# unzip -o /tmp/${component}.zi
+cd /home/roboshop
+unzip /tmp/user.zip
+statusfunction $?
+
+echo -n "changing the ownership : "
+mv ${component}-main ${component}
+chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
+statusfunction $?
+
+echo -n "generating the ${component} artifacts :"
+cd /home/${appuser}/${component}/
+npm install 
+statusfunction $?
+
+echo -n "updating the ${component} systemfile "
+sed -i "s/MONGO_ENDPOINT/mongodb.roboshop/"  /home/roboshop/user/systemd.service
+sed -i "s/REDIS_ENDPOINT/redis.roboshop/"  /home/roboshop/user/systemd.service
+
+mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
+statusfunction $?
+
+
+echo -n "starting the user service: "
+systemctl daemon-reload
+systemctl start user
+systemctl restart user
+systemctl status user 
+statusfunction $?
