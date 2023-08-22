@@ -61,7 +61,7 @@ npm install
 statusfunction $?
 
 echo -n "updating the ${component} systemfile "
-sed -ie "s/MONGO_DNSNAME/mongodb.roboshop/" /home/${appuser}/${component}/systemd.service
+sed -i "s/MONGO_DNSNAME/mongodb.roboshop/" /home/${appuser}/${component}/systemd.service
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 statusfunction $?
 
