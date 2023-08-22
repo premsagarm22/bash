@@ -26,12 +26,11 @@ yum install nodejs -y
 statusfunction $?
 
 echo "adding roboshop user acc"
-useradd roboshop
+# useradd roboshop
 cd /home/roboshop
 statusfunction $?
 
 curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
-cd /home/roboshop
 unzip /tmp/user.zip
 statusfunction $?
 
