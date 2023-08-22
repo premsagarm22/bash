@@ -8,7 +8,7 @@ if [ $user_id -ne 0 ]; then
   exit 1
 fi
 
-echo -e "\e[35m configuring t}${component \e[0m"
+echo -e "\e[35m configuring frontend} ${component \e[0m"
 
 echo -n "installing ${component} :"
 yum install nginx -y >> /tmp/component.log
@@ -25,7 +25,7 @@ statusfunction(){
 
 statusfunction $?
 
-echo -n "starting nginx "
+echo -n "starting nginx:"
 systemctl enable nginx
 systemctl start nginx
 
@@ -37,7 +37,7 @@ curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend
 
 statusfunction $?
 
-echo -n "cleanining frontend "
+echo -n "cleanining frontend:"
 
 cd /usr/share/nginx/html
 rm -rf *
@@ -47,7 +47,7 @@ echo -n "unziping frontend"
 unzip /tmp/frontend.zip
 statusfunction $?
 
-echo -n "moving to location : "
+echo -n "moving to location :"
 mv frontend-main/* .
 mv static/* .
 
