@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-
 user_id=$(id -u)
 component="user"
 appuser="roboshop"
@@ -44,8 +43,7 @@ unzip -o /tmp/user.zip >> ${log}
 statusfunction
 
 echo -n "Copying the ${component} to ${appuser} home directory: "
-cd /home/${appuser}
-rm -rf user 
+cd /home/${appuser} || exit 1
 mv ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
