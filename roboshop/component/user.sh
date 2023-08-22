@@ -68,7 +68,7 @@ echo -n "starting the catalogue service: "
 mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl start user
-ystemctl enable user
+systemctl enable user
 statusfunction $?
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
