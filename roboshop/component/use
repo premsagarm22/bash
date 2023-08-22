@@ -32,10 +32,6 @@ statusfunction $?
 
 curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
 unzip /tmp/user.zip
-statusfunction $?
-
-echo -n "moving the info  roboshop: "
-rm -rf user
 mv user-main user
 cd /home/roboshop/
 npm install
