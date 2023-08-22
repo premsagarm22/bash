@@ -43,7 +43,6 @@ systemctl enable mongod
 systemctl start mongod
 statusfunction $?
 
-
 echo -n "Downloading the ${component} schema: "
 curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/${component}/archive/main.zip" 
 statusfunction $?
@@ -52,7 +51,6 @@ echo -n "Extracing the ${component} Schema:"
 cd /tmp 
 unzip -o ${component}.zip &>> ${LOGFILE} 
 statusfunction $?
-
 
 echo -n "Injecting ${component} Schema:"
 cd ${component}-main
