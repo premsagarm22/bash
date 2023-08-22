@@ -59,16 +59,16 @@ npm install
 statusfunction $?
 
 echo -n "updating the ${component} systemfile "
-sed -i "s/MONGO_ENDPOINT/mongodb.roboshop/" /home/roboshop/user/systemd.service
-sed -i "s/REDIS_ENDPOINT/redis.roboshop/" /home/roboshop/user/systemd.service
+sed -ie 's/MONGO_ENDPOINT/mongodb.roboshop/' /home/roboshop/user/systemd.service
+sed -ie 's/REDIS_ENDPOINT/redis.roboshop/' /home/roboshop/user/systemd.service
 statusfunction $?
 
 
 echo -n "starting the catalogue service: "
-mv /home/roboshop/user/systemd.servicee /etc/systemd/system/user.service
+mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
 systemctl daemon-reload
-systemctl start user
 systemctl enable user
+systemctl restart user
 statusfunction $?
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
