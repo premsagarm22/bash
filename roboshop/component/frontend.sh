@@ -47,7 +47,7 @@ echo -n "unziping frontend"
 unzip /tmp/frontend.zip
 statusfunction $?
 
-echo "moving to location"
+echo -n "moving to location : "
 mv frontend-main/* .
 mv static/* .
 
