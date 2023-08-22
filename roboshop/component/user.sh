@@ -42,9 +42,6 @@ echo -n "downlaoding the ${component} : "
 curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
 cd /home/roboshop
 unzip -o /tmp/user.zip
-mv user-main user /home/roboshop/
-cd /home/roboshop/user
-npm install
 statusfunction $?
 
 echo -n "changing the ownership : "
@@ -64,7 +61,7 @@ statusfunction $?
 
 
 echo -n "starting the catalogue service: "
-mv /home/roboshop/user/user/systemd.service /etc/systemd/system/user.service
+mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl enable user
 systemctl restart user
