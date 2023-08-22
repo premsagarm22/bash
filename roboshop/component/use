@@ -45,7 +45,7 @@ statusfunction
 
 echo -n "Copying the ${component} to ${appuser} home directory: "
 cd /home/${appuser}
-chown -R ${appuser}:${appuser} 
+chown -R ${appuser}:${appuser} *
 rm -rf user
 mv ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
