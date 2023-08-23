@@ -54,8 +54,8 @@ cd /home/${appuser}/${component}/
 npm install 
 statusfunction $?
 
-echo -n "updating the ${component} systemfile "
-sed -ie "s/MONGO_DNSNAME/172.31.46.54/g" /home/roboshop/catalogue/systemd.service
+echo -n "updating the ${component} systemfile: "
+sed -ie 's/MONGO_DNSNAME/mongodb.roboshop-internal/g' /home/roboshop/catalogue/systemd.service
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 echo -n "changing the ownership : "
 statusfunction $?
