@@ -1,7 +1,5 @@
 #!/bin/bash 
 
-set -e
-
 user_id=$(id -u)
 component=user
 appuser=roboshop
@@ -32,6 +30,7 @@ yum install nodejs -y
 statusfunction $?
 
 id ${appuser} &>> ${log}
+
 if [ $? -ne 0 ]; then
   echo -n "creating application user account :"
   useradd roboshop
@@ -60,7 +59,7 @@ sed -ie 's/REDIS_ENDPOINT/redis.roboshop-internal/' /home/roboshop/user/systemd.
 statusfunction $?
 
 
-echo -n "starting the catalogue service: "
+echo -n "starting the catalogue service :"
 mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl enable user
