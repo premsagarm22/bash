@@ -55,8 +55,8 @@ npm install
 statusfunction $?
 
 echo -n "updating the ${component} systemfile "
-sed -ie 's/MONGO_ENDPOINT/mongodb.roboshop/' /home/roboshop/user/systemd.service
-sed -ie 's/REDIS_ENDPOINT/redis.roboshop/' /home/roboshop/user/systemd.service
+sed -ie 's/MONGO_ENDPOINT/mongodb.roboshop-internal/' /home/roboshop/user/systemd.service
+sed -ie 's/REDIS_ENDPOINT/redis.roboshop-internal/' /home/roboshop/user/systemd.service
 statusfunction $?
 
 
