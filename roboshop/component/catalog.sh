@@ -43,14 +43,8 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 statusfunction $?
 
 echo -n "copying the ${component} to ${appuser} home diectory: "
-# cd /home/${appuser}/
-# rm -rf ${component} >> ${log}
-# unzip -o /tmp/${component}.zi
 cd /home/roboshop
-unzip /tmp/catalogue.zip
-statusfunction $?
-
-echo -n "changing the ownership : "
+unzip -o /tmp/catalogue.zip
 mv ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
