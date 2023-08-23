@@ -62,7 +62,7 @@ statusfunction $?
 
 echo -n "updating the ${component} systemfile "
 sed -i "s/MONGO_DNSNAME/mongodb.roboshop/" /home/${appuser}/${component}/systemd.service
-mv /home/roboshop/catalogue/systemd.servicee /etc/systemd/system/catalogue.service
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 statusfunction $?
 
 
