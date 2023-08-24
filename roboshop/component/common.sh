@@ -53,7 +53,7 @@ statusfunction $?
 config_service() {
     echo -n "updating the ${component} systemfile: "
 sed -ie 's/MONGO_DNSNAME/mongodb.roboshop-internal/g' /home/${appuser}/${component}/systemd.service
-mv /home/robo/${appuser}/${component}/systemd.service /etc/systemd/system/${component}.service
+mv /home/${appuser}/${component}/systemd.service /etc/systemd/system/${component}.service
 echo -n "changing the ownership : "
 statusfunction $?
 
