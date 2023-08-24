@@ -27,6 +27,7 @@ statusfunction $?
 echo -n "adding user :"
 user=roboshop
 if [ $user -ne 0 ]; then
+  useradd roboshop
   echo "creating ${user} account"
 fi
 statusfunction $?
