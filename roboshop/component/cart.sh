@@ -26,10 +26,8 @@ statusfunction $?
 
 echo -n "adding user :"
 user=roboshop
-if [ $? -ne 0 ]; then
+if [ $user -ne 0 ]; then
   echo "creating ${user} account"
-else 
-  exit 2
 fi
 statusfunction $?
 
