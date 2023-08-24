@@ -9,23 +9,6 @@ Nodejs #calling function
 
 echo -e "\n \e[35m ${component} installing is completed \e[0m \n"
 
-
-
-
-
-
-
-
-
-echo -n "downlaoding the ${component} : "
-curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
-statusfunction $?
-
-echo -n "copying the ${component} to ${appuser} home diectory: "
-cd /home/${component}
-unzip -o /tmp/catalogue.zip
-
-
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
 # systemctl start catalogue
