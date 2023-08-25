@@ -46,8 +46,8 @@ unzip -o /tmp/cart.zip
 mv cart-main cart
 cd cart
 npm install
-sed -ie "s/REDIS_ENDPOINT/172.31.41.73/g" /home/roboshop/cart/systemd.service
-sed -ie "s/CATALOGUE_ENDPOINT/172.31.45.192/g" /home/roboshop/cart/systemd.service
+sed -ie "s/REDIS_ENDPOINT/172.31.41.73/g" /home/roboshop/cart/systemd.servicee
+sed -ie "s/CATALOGUE_ENDPOINT/172.31.45.192/g" /home/roboshop/cart/systemd.servicee
 statusfunction $?
 
 
