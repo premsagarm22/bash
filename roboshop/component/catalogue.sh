@@ -6,7 +6,8 @@ log="/tmp/${component}.log"
 
 #this is how we import the function that are declared in a different file using source
 
-source component/common.sh
+source component/common.shls
+
 Nodejs  #calling function
 
 echo -e "\n \e[35m ${component} installing is completed \e[0m \n"
