@@ -29,7 +29,7 @@ statusfunction $?
 
 
 echo -n "adding user :"
-user=roboshop
+user="roboshop"
 if [ "$user" -ne 0 ]; then
   useradd roboshop
   echo "creating ${user} account"
@@ -39,7 +39,7 @@ statusfunction $?
 echo -n "adding the components inside the ${user} user account:"
  curl -s -L -o /tmp/cart.zip "https://github.com/stans-robot-project/cart/archive/main.zip"
 cd /home/roboshop
-unzip /tmp/cart.zip
+unzip -o /tmp/cart.zip
 mv cart-main cart
 cd cart
 npm install
