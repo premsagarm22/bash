@@ -9,7 +9,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-statusfunction(){
+statusfunction() {
 
     if [ $? -eq 0 ]; then
        echo -e "\e[33m sucessfully installed \e[0m"
@@ -33,11 +33,14 @@ user="roboshop"
 if [ "$user" -ne 0 ]; then
   useradd roboshop
   echo "creating ${user} account"
+else
+  echo -e "please be non-root user"
+  exit 3  
 fi
 statusfunction $?
 
 echo -n "adding the components inside the ${user} user account:"
- curl -s -L -o /tmp/cart.zip "https://github.com/stans-robot-project/cart/archive/main.zip"
+curl -s -L -o /tmp/cart.zip "https://github.com/stans-robot-project/cart/archive/main.zip"
 cd /home/roboshop
 unzip -o /tmp/cart.zip
 mv cart-main cart
