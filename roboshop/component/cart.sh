@@ -43,9 +43,6 @@ unzip /tmp/cart.zip
 mv cart-main cart
 cd cart
 npm install
-statusfunction $?
-
-echo -n "making updation of ip address:"
 sed -ie "s/REDIS_ENDPOINT/172.31.41.73/g" /home/roboshop/cart/systemd.service
 sed -ie "s/CATALOGUE_ENDPOINT/172.31.45.192/g" /home/roboshop/cart/systemd.service
 statusfunction $?
