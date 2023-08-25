@@ -1,5 +1,9 @@
 #!/bin/bash
 
+component=cart
+appuser="roboshop"
+log="/tmp/${component}.log"
+
 if [ $? -ne 0 ]; then
   echo "you needs to be perform through root directory"
   exit 1
@@ -16,7 +20,7 @@ statusfunction(){
 }
 
 echo -n "downloanding cart compoment:"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_16.x 
 statusfunction $?
 
 echo -n "downloading nodje component: "
