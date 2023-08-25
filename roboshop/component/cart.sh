@@ -29,7 +29,7 @@ statusfunction $?
 
 
 echo -n "adding user :"
-id ${appuser}  &>> ${log} 
+id ${APPUSER}  &>> ${LOGFILE} 
 if [ $? -ne 0 ]; then
   useradd roboshop
   echo "creating ${user} account"
