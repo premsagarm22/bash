@@ -1,12 +1,10 @@
 #!/bin/bash
 
 component=catalogue
-appuser="roboshop"
-log="/tmp/${component}.log"
 
 #this is how we import the function that are declared in a different file using source
 
-source component/common.shls
+source component/common.sh
 
 Nodejs  #calling function
 
