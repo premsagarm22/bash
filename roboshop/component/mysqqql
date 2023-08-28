@@ -2,6 +2,7 @@
 
 user_id=$(id -u)
 component=mysql
+log=/tmp/{component}.log
 
 if [ $user_id -ne 0 ]; then 
   echo -e "\e[33m you needs to be perform as root user \e[0m"
@@ -21,9 +22,9 @@ status() {
 
 
 
-echo -n "installing my-sql repo:  "
-curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo
-yum install mysql-community-server -y
-systemctl enable mysqld 
-systemctl start mysqld
+echo -n "installing my-sql repo:  " 
+curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo &>> ${log}
+yum install mysql-community-server -y &>> ${log}
+systemctl enable mysqld &>> ${log}
+systemctl start mysqld &>> ${log}
 status $?
