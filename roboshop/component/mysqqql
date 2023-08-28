@@ -5,9 +5,9 @@ component=mysql
 
 status() {
     if [ $? -eq 0 ]; then
-      echo -e "\e[32m sucess"
+      echo -e "\e[32m sucess \e[0m"
     else
-      echo -e "\e[33 failure\e[0m"   
+      echo -e "\e[33 failure \e[0m"   
     fi
 }
 
