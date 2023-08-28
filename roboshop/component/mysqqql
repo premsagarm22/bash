@@ -11,7 +11,7 @@ if [ $user_id -ne 0 ]; then
 fi
 
 
-status() {
+statusus() {
     if [ $? -eq 0 ]; then
       echo -e "\e[32m sucess \e[0m"
     else
@@ -27,41 +27,41 @@ curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stan
 yum install mysql-community-server -y &>> ${log}
 systemctl enable mysqld &>> ${log}
 systemctl start mysqld &>> ${log}
-status $?
+statusus $?
 
 # This should happen only once and that too for the first time, when it runs for the second time, jobs fails.
 echo -n "Extracting the default mysql root password :"
 DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk -F '{print $NF}')
-status $?
+statusus $?
 
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>>  ${log}
 if [ $? -ne 0 ]; then 
     echo -n "Performing default password reset of root account:"
     echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql  --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>>  ${log}
-    stat $?
+    status $?
 fi 
 
 echo "show plugins;" | mysql -uroot -pRoboShop@1 | grep validate_password  &>>  ${log}
 if [ $? -eq 0 ]; then 
     echo -n "Uninstalling Password-validate plugin :"
     echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1 &>>  ${log}
-    stat $?
+    status $?
 fi 
 
 
 echo -n "Downloading the $component schema:"
 curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/${component}/archive/main.zip"
-stat $? 
+status $? 
 
 echo -n "Extracting the $component Schema:"
 cd /tmp  
 unzip -o /tmp/${component}.zip   &>> $log
-stat $? 
+status $? 
 
 echo -n "Injecting the schema:"
 cd ${component}-main 
 mysql -u root -pRoboShop@1 <shipping.sql     &>>  ${log} 
-stat $? 
+status $? 
 
 
 echo -e "\e[35m ${component} Installation Is Completed \e[0m \n
