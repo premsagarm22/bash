@@ -18,8 +18,7 @@ if [ $user_id -ne 0 ]; then
   exit 1
 fi
 
-echo -n "installing my-sql repo:"
-
+echo -n "installing my-sql repo:  "
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo
 yum install mysql-community-server -y
 systemctl enable mysqld 
