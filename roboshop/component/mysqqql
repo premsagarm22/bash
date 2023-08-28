@@ -4,6 +4,7 @@ user_id=$(id -u)
 component=mysql
 
 echo -e "\e[32m check wheather user is root or not"
+
 if [ $user_id -ne 0 ]; then 
   echo -e "\e[33m you needs to be perform as root user \e[0m"
   echo -e "EXAMPLE  sudo <file_name>"
@@ -15,7 +16,8 @@ status() {
     if [ $? -eq 0 ]; then
       echo -e "\e[32m sucess \e[0m"
     else
-      echo -e "\e[33 failure \e[0m"   
+      echo -e "\e[33 failure \e[0m" 
+      exit 2  
     fi
 }
 
