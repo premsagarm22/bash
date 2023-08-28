@@ -3,6 +3,14 @@
 user_id=$(id -u)
 component=mysql
 
+echo -e "\e[32m check wheather user is root or not"
+if [ $user_id -ne 0 ]; then 
+  echo -e "\e[33m you needs to be perform as root user \e[0m"
+  echo -e "EXAMPLE  sudo <file_name>"
+  exit 1
+fi
+
+
 status() {
     if [ $? -eq 0 ]; then
       echo -e "\e[32m sucess \e[0m"
@@ -11,12 +19,7 @@ status() {
     fi
 }
 
-echo -e "\e[32m check wheather user is root or not"
-if [ $user_id -ne 0 ]; then 
-  echo -e "\e[33m you needs to be perform as root user \e[0m"
-  echo -e "EXAMPLE  sudo <file_name>"
-  exit 1
-fi
+
 
 echo -n "installing my-sql repo:  "
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo
