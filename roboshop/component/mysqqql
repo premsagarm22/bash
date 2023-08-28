@@ -3,7 +3,7 @@
 user_id=$(id -u)
 component=mysql
 
-echo -e "\e[32m check wheather user is root or not"
+echo -n "check wheather user is root or not"
 
 if [ $user_id -ne 0 ]; then 
   echo -e "\e[33m you needs to be perform as root user \e[0m"
