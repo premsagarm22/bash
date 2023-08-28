@@ -11,7 +11,7 @@ if [ $user_id -ne 0 ]; then
 fi
 
 
-statusus() {
+status() {
     if [ $? -eq 0 ]; then
       echo -e "\e[32m sucess \e[0m"
     else
@@ -27,12 +27,12 @@ curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stan
 yum install mysql-community-server -y &>> ${log}
 systemctl enable mysqld &>> ${log}
 systemctl start mysqld &>> ${log}
-statusus $?
+status $?
 
 # This should happen only once and that too for the first time, when it runs for the second time, jobs fails.
 echo -n "Extracting the default mysql root password :"
 DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk -F '{print $NF}')
-statusus $?
+status $?
 
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>>  ${log}
 if [ $? -ne 0 ]; then 
