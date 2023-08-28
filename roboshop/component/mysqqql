@@ -31,7 +31,7 @@ status $?
 
 # This should happen only once and that too for the first time, when it runs for the second time, jobs fails.
 echo -n "Extracting the default mysql root password :"
-DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk -F '{print $NF}')
+DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk -F " " '{print $NF}')
 status $?
 
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>>  ${log}
