@@ -2,7 +2,7 @@
 
 component=mysql
 
-source components/common.sh
+source component/common.sh
 
 echo -e "\e[35m Configuring ${component} ......! \e[0m \n"
 
