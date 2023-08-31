@@ -20,11 +20,8 @@ statusfunction() {
 }
 
 echo -n "downloanding cart compoment:"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
-statusfunction $?
-
-echo -n "downloading nodejs component: "
-yum install nodejs -y
+curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+yum install nodejs -y| sudo bash -
 statusfunction $?
 
 
