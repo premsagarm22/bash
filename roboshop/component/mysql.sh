@@ -11,12 +11,12 @@ curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stan
 statusfunction $?
 
 echo -n "Installing ${component}  :"
-yum install mysql-community-server -y     &>>  ${LOGFILE}
+yum install mysql-community-server -y     &>>  ${log}
 statusfunction $?
 
 echo -n "Starting ${component}:" 
-systemctl enable mysqld   &>>  ${LOGFILE}
-systemctl start mysqld    &>>  ${LOGFILE}
+systemctl enable mysqld   &>>  ${log}
+systemctl start mysqld    &>>  ${log}
 statusfunction $?
 
 echo -n "Extracting the default mysql root password :"
@@ -26,17 +26,17 @@ statusfunction $?
 # This should happen only once and that too for the first time, when it runs for the second time, jobs fails.
 # We need to ensure that this runs only once.
 
-echo "show databases;" | mysql -uroot -pRoboShop@1 &>>  ${LOGFILE}
+echo "show databases;" | mysql -uroot -pRoboShop@1 &>>  ${log}
 if [ $? -ne 0 ]; then 
     echo -n "Performing default password reset of root account:"
-    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql  --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>>  ${LOGFILE}
+    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql  --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD &>>  ${log}
     statusfunction $?
 fi 
 
-echo "show plugins;" | mysql -uroot -pRoboShop@1 | grep validate_password  &>>  ${LOGFILE}
+echo "show plugins;" | mysql -uroot -pRoboShop@1 | grep validate_password  &>>  ${log}
 if [ $? -eq 0 ]; then 
     echo -n "Uninstalling Password-validate plugin :"
-    echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1 &>>  ${LOGFILE}
+    echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1 &>>  ${log}
     statusfunction $?
 fi 
 
@@ -47,12 +47,12 @@ statusfunction $?
 
 echo -n "Extracting the $component Schema:"
 cd /tmp  
-unzip -o /tmp/${component}.zip   &>> $LOGFILE
+unzip -o /tmp/${component}.zip   &>> $log
 statusfunction $? 
 
 echo -n "Injecting the schema:"
 cd ${component}-main 
-mysql -u root -pRoboShop@1 <shipping.sql     &>>  ${LOGFILE} 
+mysql -u root -pRoboShop@1 <shipping.sql     &>>  ${log} 
 statusfunction $? 
 
 
