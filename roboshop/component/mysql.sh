@@ -1,20 +1,20 @@
 #!/bin/bash
 
-COMPONENT=mysql
+component=mysql
 
 source components/common.sh
 
-echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
+echo -e "\e[35m Configuring ${component} ......! \e[0m \n"
 
-echo -n "Configuring ${COMPONENT} repo :"
+echo -n "Configuring ${component} repo :"
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo
 statusfunction $?
 
-echo -n "Installing ${COMPONENT}  :"
+echo -n "Installing ${component}  :"
 yum install mysql-community-server -y     &>>  ${LOGFILE}
 statusfunction $?
 
-echo -n "Starting ${COMPONENT}:" 
+echo -n "Starting ${component}:" 
 systemctl enable mysqld   &>>  ${LOGFILE}
 systemctl start mysqld    &>>  ${LOGFILE}
 statusfunction $?
@@ -41,19 +41,19 @@ if [ $? -eq 0 ]; then
 fi 
 
 
-echo -n "Downloading the $COMPONENT schema:"
-curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+echo -n "Downloading the $component schema:"
+curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/${component}/archive/main.zip"
 statusfunction $? 
 
-echo -n "Extracting the $COMPONENT Schema:"
+echo -n "Extracting the $component Schema:"
 cd /tmp  
-unzip -o /tmp/${COMPONENT}.zip   &>> $LOGFILE
+unzip -o /tmp/${component}.zip   &>> $LOGFILE
 statusfunction $? 
 
 echo -n "Injecting the schema:"
-cd ${COMPONENT}-main 
+cd ${component}-main 
 mysql -u root -pRoboShop@1 <shipping.sql     &>>  ${LOGFILE} 
 statusfunction $? 
 
 
-echo -e "\e[35m ${COMPONENT} Installation Is Completed \e[0m \n"
+echo -e "\e[35m ${component} Installation Is Completed \e[0m \n"
