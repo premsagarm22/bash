@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash 
-
 component=mysql
 
 source components/common.sh
@@ -13,7 +11,7 @@ curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stan
 stat $?
 
 echo -n "Installing ${component}  :"
-yum install mysql-community-server -y     &>>  ${log}
+yum install mysql-community-server -y   &>>  ${log}
 stat $?
 
 echo -n "Starting ${component}:" 
@@ -56,6 +54,5 @@ echo -n "Injecting the schema:"
 cd ${component}-main 
 mysql -u root -pRoboShop@1 <shipping.sql     &>>  ${log} 
 stat $? 
-
 
 echo -e "\e[35m ${component} Installation Is Completed \e[0m \n
