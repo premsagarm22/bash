@@ -55,4 +55,4 @@ cd ${component}-main
 mysql -u root -pRoboShop@1 <shipping.sql     &>>  ${log} 
 stat $? 
 
-echo -e "\e[35m ${component} Installation Is Completed \e[0m \n
+echo -e "\e[35m ${component} Installation Is Completed"
