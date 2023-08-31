@@ -46,8 +46,8 @@ unzip -o /tmp/user.zip
 statusfunction $?
 
 echo -n "changing the ownership : "
-mv ${component}-main ${component}
 rm -rf ${component}
+mv ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
 
