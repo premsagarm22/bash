@@ -40,7 +40,6 @@ statusfunction $?
 echo -n "creating the user:"
 id ${appuser}
 if [ $? -ne 0 ]; then
-  echo -n "creating application user account :"
   useradd roboshop
   statusfunction $?
 fi    
