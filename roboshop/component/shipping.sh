@@ -49,7 +49,6 @@ statusfunction $?
 
 echo -n "creating the user:"
 create_user
-statusfunction $?
 
 echo -n "downloading the repo: "
 cd /home/roboshop
