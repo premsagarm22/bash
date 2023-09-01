@@ -3,7 +3,7 @@
 #all the common functions are declared here
 
 set -e
-appuser="roboshop"
+appuser=roboshop
 log="/tmp/${component}.log"
 
 user_id=$(id -u)
@@ -53,8 +53,8 @@ rm -rf ${component}  &>> ${log}
 unzip -o /tmp/${component}.zip
 statusfunction $?
 
-# mv ${component}-main ${component}
-# chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
+mv ${component}-main ${component}
+chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
 
 }
