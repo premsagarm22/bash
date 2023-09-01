@@ -54,6 +54,7 @@ unzip -o /tmp/${component}.zip
 statusfunction $?
 
 mv  ${component}-main ${component}
+cd ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
 
