@@ -49,7 +49,8 @@ maven
 statusfunction $?
 
 echo -n "creating the user:"
-create_user
+create_app_user
+statusfunction $?
 
 echo -n "downloading the repo: "
 cd /home/roboshop
