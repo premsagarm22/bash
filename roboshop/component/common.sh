@@ -53,6 +53,7 @@ cd /home/${appuser}
 unzip -o /tmp/${component}.zip
 statusfunction $?
 
+cd ${component}
 mv ${component}-main ${component}
 cd ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
