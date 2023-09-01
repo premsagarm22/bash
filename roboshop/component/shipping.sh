@@ -30,9 +30,29 @@ curl -s https://archive.apache.org/dist/maven/maven-3/${VERSION}/binaries/apache
 unzip /tmp/apache-maven-${VERSION}-bin.zip
 mv apache-maven-${VERSION} maven
 ln -s /opt/maven/bin/mvn /bin/mvn
-
 }
 
 echo -n "installing java11 : "
 maven
 statusfunction $?
+
+echo -n "creating the user:"
+id ${appuser} &>> ${log}
+if [ $? -ne 0 ]; then
+  echo -n "creating application user account :"
+  useradd roboshop
+  statusfunction $?
+fi    
+
+echo -n "downloading the repo: "
+cd /home/roboshop
+curl -s -L -o /tmp/shipping.zip "https://github.com/stans-robot-project/shipping/archive/main.zip"
+unzip /tmp/shipping.zip
+mv shipping-main shipping
+cd shipping
+mvn clean package 
+mv target/shipping-1.0.jar shipping.jar
+statusfunction $?
+
+
+
