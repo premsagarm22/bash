@@ -64,6 +64,7 @@ systemctl daemon-reload
 systemctl start shipping 
 systemctl enable shipping
 systemctl status shipping -l 
+statusfunction $?
 
 # ( You should see a message stating, that shipping started )
 
