@@ -28,7 +28,6 @@ VERSION=$(curl -s https://maven.apache.org/download.cgi  | grep Downloading |awk
 cd /opt
 curl -s https://archive.apache.org/dist/maven/maven-3/${VERSION}/binaries/apache-maven-${VERSION}-bin.zip -o /tmp/apache-maven-${VERSION}-bin.zip
 unzip -o /tmp/apache-maven-${VERSION}-bin.zip
-rm -rf apache-maven-${VERSION}
 mv apache-maven-${VERSION} maven
 ln -s /opt/maven/bin/mvn /bin/mvn
 }
