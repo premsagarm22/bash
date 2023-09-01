@@ -21,14 +21,15 @@ statusfunction() {
     fi
 }
 
-create_user() {
-
-id ${appuser} &>> ${log}
-if [ $? -ne 0 ]; then
-  echo -n "creating application user account :"
-  useradd roboshop
-  statusfunction $?
-fi    
+create_app_user() {
+    echo -n "Creating application user account: "
+    id "${appuser}" &>> "${log}"
+    if [ $? -ne 0 ]; then
+        useradd "${appuser}"
+        log_status
+    else
+        echo -e "\e[32mUser '${appuser}' already exists.\e[0m"
+    fi
 }
 
 maven() {
