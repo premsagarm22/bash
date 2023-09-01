@@ -51,8 +51,8 @@ curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/cata
 cd /home/${appuser}
 # rm -rf ${component}  &>> ${log}
 unzip -o /tmp/${component}.zip
-statusfunction $?
-
+mv ${component}-main ${component}
+chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 mv ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
