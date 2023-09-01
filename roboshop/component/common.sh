@@ -123,7 +123,7 @@ JAVA() {
 
         MVN_PACKAGE
 
-        # config_service
+        config_service
 
 }
 
