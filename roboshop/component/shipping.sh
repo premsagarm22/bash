@@ -2,7 +2,7 @@
 set -e
 
 component=shipping
-appuser=roboshop
+appuser="roboshop"
 log="/tmp/${component}.log"
 
 user_id=$(id -u)
@@ -38,7 +38,7 @@ maven
 statusfunction $?
 
 echo -n "creating the user:"
-id ${appuser} &>> ${log}
+id ${appuser}
 if [ $? -ne 0 ]; then
   echo -n "creating application user account :"
   useradd roboshop
