@@ -1,5 +1,6 @@
 #!/bin/bash 
 set -e
+
 component=shipping
 appuser=roboshop
 log="/tmp/${component}.log"
