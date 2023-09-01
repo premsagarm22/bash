@@ -54,5 +54,18 @@ mvn clean package
 mv target/shipping-1.0.jar shipping.jar
 statusfunction $?
 
+echo -n "updating ip address: "
+sed -ie "s/CARTENDPOINT/cart.roboshop-internal/" -e "s/DBHOST/mongodb.roboshop-internal/" /home/${appuser}/${component}/systemd.service
+statusfunction $?
 
+echo -n "copying systemd files into running as service:"
+mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service
+systemctl daemon-reload
+systemctl start shipping 
+systemctl enable shipping
+systemctl status shipping -l 
+
+# ( You should see a message stating, that shipping started )
+
+# Ref: Started ShippingServiceApplication in `X` seconds
 
