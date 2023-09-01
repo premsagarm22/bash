@@ -107,7 +107,7 @@ MVN_PACKAGE() {
         cd /home/${appuser}/${component}/
         mvn clean package   &>> ${log}
         mv target/${component}-1.0.jar ${component}.jar
-        stat $?
+        statusfunction $?
 }
 
 JAVA() {
@@ -115,7 +115,7 @@ JAVA() {
 
         echo -n "Installing maven:"
         yum install maven -y    &>> ${log}
-        stat $? 
+        statusfunction $? 
 
         create_user              # calls CREATE_USER function that creates user account.
 
