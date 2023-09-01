@@ -53,7 +53,7 @@ rm -rf ${component}  &>> ${log}
 unzip -o /tmp/${component}.zip
 statusfunction $?
 
-mv ${component}-main ${component}
+mv  ${component}-main . ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
 
