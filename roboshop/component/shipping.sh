@@ -21,6 +21,16 @@ statusfunction() {
     fi
 }
 
+create_user() {
+
+id ${appuser} &>> ${log}
+if [ $? -ne 0 ]; then
+  echo -n "creating application user account :"
+  useradd roboshop
+  statusfunction $?
+fi    
+}
+
 maven() {
 
 yum install java-11-openjdk.x86_64 java-11-openjdk-devel.x86_64 -y
@@ -38,12 +48,8 @@ maven
 statusfunction $?
 
 echo -n "creating the user:"
-id ${appuser}
-cat ${id}
-if [ $? -ne 0 ]; then
-  useradd roboshop
-  statusfunction $?
-fi    
+create_user
+statusfunction $?
 
 echo -n "downloading the repo: "
 cd /home/roboshop
