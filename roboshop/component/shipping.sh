@@ -27,7 +27,7 @@ yum install java-11-openjdk.x86_64 java-11-openjdk-devel.x86_64 -y
 VERSION=$(curl -s https://maven.apache.org/download.cgi  | grep Downloading |awk '{print $NF}' |awk -F '<' '{print $1}')
 cd /opt
 curl -s https://archive.apache.org/dist/maven/maven-3/${VERSION}/binaries/apache-maven-${VERSION}-bin.zip -o /tmp/apache-maven-${VERSION}-bin.zip
-unzip /tmp/apache-maven-${VERSION}-bin.zip
+unzip -o /tmp/apache-maven-${VERSION}-bin.zip
 mv apache-maven-${VERSION} maven
 ln -s /opt/maven/bin/mvn /bin/mvn
 }
@@ -47,7 +47,7 @@ fi
 echo -n "downloading the repo: "
 cd /home/roboshop
 curl -s -L -o /tmp/shipping.zip "https://github.com/stans-robot-project/shipping/archive/main.zip"
-unzip /tmp/shipping.zip
+unzip -o /tmp/shipping.zip
 mv shipping-main shipping
 cd shipping
 mvn clean package 
