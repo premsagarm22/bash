@@ -26,6 +26,7 @@ create_app_user() {
     id "${appuser}" &>> "${log}"
     if [ $? -ne 0 ]; then
         useradd "${appuser}"
+        statusfunction $?
     fi
 }
 
