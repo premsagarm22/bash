@@ -2,6 +2,7 @@
 
 #all the common functions are declared here
 
+set -e
 appuser="roboshop"
 log="/tmp/${component}.log"
 
