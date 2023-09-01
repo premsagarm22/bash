@@ -26,9 +26,6 @@ create_app_user() {
     id "${appuser}" &>> "${log}"
     if [ $? -ne 0 ]; then
         useradd "${appuser}"
-        log_status
-    else
-        echo -e "\e[32mUser '${appuser}' already exists.\e[0m"
     fi
 }
 
