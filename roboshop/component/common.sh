@@ -132,7 +132,7 @@ PYTHON() {
 
         echo -n "Installing python:"
         yum install python36 gcc python3-devel -y &>> ${log}
-        stat $? 
+        statusfunction $? 
 
         create_user              # calls CREATE_USER function that creates user account.
 
@@ -141,14 +141,14 @@ PYTHON() {
         echo -n "Generating the artifacts"
         cd /home/${appuser}/${component}/ 
         pip3 install -r requirements.txt    &>> ${log} 
-        stat $?
+        statusfunction $?
 
         user_id=$(id -u roboshop)
         GROUPID=$(id -g roboshop)
 
         echo -n "Updating the uid and gid in the ${component}.ini file"
         sed -i -e "/^uid/ c uid=${user_id}" -e "/^gid/ c gid=${GROUPID}" /home/${appuser}/${component}/${component}.ini
-        stat $?
+        statusfunction $?
 
         config_service
 }
