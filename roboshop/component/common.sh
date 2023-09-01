@@ -49,11 +49,11 @@ downloading_and_extracting() {
 echo -n "downlaoding the ${component} : "
 curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 cd /home/${appuser}
-rm -rf ${component}  &>> ${log}
+# rm -rf ${component}  &>> ${log}
 unzip -o /tmp/${component}.zip
 statusfunction $?
 
-mv  ${component}-main . ${component}
+mv  ${component}-main ${component}
 chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
 statusfunction $?
 
