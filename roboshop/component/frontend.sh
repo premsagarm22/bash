@@ -11,7 +11,7 @@ if [ $USER_ID -ne 0 ] ; then
     exit 1
 fi 
 
-stat() {
+statusfunction() {
     if [ $1 -eq 0 ]; then 
         echo -e "\e[32m success \e[0m"
     else 
@@ -24,21 +24,21 @@ echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
 
 echo -n "Installing Nginx :"
 yum install nginx -y     &>>  ${LOGFILE}
-stat $?
+statusfunction $?
 
 echo -n "Starting Nginx:" 
 systemctl enable nginx   &>>  ${LOGFILE}
 systemctl start nginx    &>>  ${LOGFILE}
-stat $?
+statusfunction $?
 
 echo -n "Downloading the ${COMPONENT} component:"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip" 
-stat $? 
+statusfunction $? 
 
 echo -n "Clean up of ${COMPONENT} : "
 cd /usr/share/nginx/html    
 rm -rf *     &>>  ${LOGFILE}
-stat $?
+statusfunction $?
 
 echo -n "Extracting ${COMPONENT} :"
 unzip /tmp/${COMPONENT}.zip     &>>  ${LOGFILE}
@@ -46,7 +46,7 @@ mv ${COMPONENT}-main/*  .
 mv static/* . 
 rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
-stat $?
+statusfunction $?
 
 echo -n "Updating the Backend Components in the reverse proxy file:"
 
@@ -57,7 +57,7 @@ echo -n "Updating the Backend Components in the reverse proxy file:"
 echo -n "Restarting ${COMPONENT}:"
 systemctl daemon-reload     &>>  ${LOGFILE}
 systemctl restart nginx     &>>  ${LOGFILE}
-stat $?
+statusfunction $?
 
 echo -e "\e[35m ${COMPONENT} Installation Is Completed \e[0m \n"
 

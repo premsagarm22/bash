@@ -59,3 +59,7 @@ mongo < users.js        &>>  ${LOGFILE}
 statusfunction $?
 
 echo -e "\e[35m ${component} Installation Is Completed \e[0m \n"
+
+for i in {1..12};do
+  touch "$i"
+done  
