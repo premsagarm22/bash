@@ -77,7 +77,7 @@ statusfunction $?
 
 }
 #creating nodejs
-Nodejs() {
+NODEJS() {
 echo -e "\e[35m configuring t}${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
