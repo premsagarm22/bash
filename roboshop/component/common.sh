@@ -36,7 +36,6 @@ statusfunction() {
 
 #creating user function
 create_user() {
-
 id ${APPUSER} &>> ${LOGFILE}
 if [ $? -ne 0 ]; then
   echo -n "creating application user account :"
