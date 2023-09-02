@@ -4,9 +4,9 @@ COMPONENT=catalogue
 
 #this is how we import the function that are declared in a different file using source
 
-source COMPONENT/common.sh
+source component/common.sh
 
-Nodejs  #calling function
+NODEJS  #calling function
 
 echo -e "\n \e[35m ${COMPONENT} installing is completed \e[0m \n"
 
