@@ -37,7 +37,7 @@ statusfunction() {
 #creating user function
 create_user() {
        id ${APPUSER}
-       if [ $? -ne 0 ] ; then
+       if [ $? -ne 0 ]; then
           echo -n "creating application user account :"
           useradd roboshop
           # statusfunction $?
@@ -160,3 +160,4 @@ PYTHON() {
 
         config_service
 }
+set -x
