@@ -41,7 +41,7 @@ create_user() {
           echo -n "creating application user account :"
           useradd roboshop
           statusfunction $?
-   fi    
+       fi    
 }
 
 # CREATE_USER() {
