@@ -91,7 +91,7 @@ yum install nodejs -y &>> ${LOGFILE}
 statusfunction $? 
 
 echo -n "CREATING USER:"
-create_user #calls create_user function that creates user account
+CREATE_USER #calls create_user function that creates user account
 downloading_and_extracting  #download and extract the COMPONENT
 statusfunction $? 
 
