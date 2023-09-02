@@ -3,6 +3,7 @@
 #all the common functions are declared here
 
 set -e
+
 APPUSER=roboshop
 LOGFILE="/tmp/${COMPONENT}.log"
 
