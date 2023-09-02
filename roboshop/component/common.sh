@@ -40,7 +40,7 @@ create_user() {
        if [ $? -ne 0 ]; then
           echo -n "creating application user account :"
           useradd roboshop
-          # statusfunction $?
+          statusfunction $?
        fi    
 }
 
