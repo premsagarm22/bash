@@ -4,7 +4,7 @@
 
 set -e
 
-APPUSER=roboshop
+APPUSER="roboshop"
 LOGFILE="/tmp/${COMPONENT}.log"
 
 USER_ID=$(id -u)
@@ -36,7 +36,7 @@ statusfunction() {
 
 #creating user function
 create_user() {
-      #  id ${APPUSER}
+id ${APPUSER}
        if [ $? -ne 0 ]; then
           echo -n "creating application user account :"
           useradd roboshop
