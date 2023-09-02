@@ -6,7 +6,7 @@ COMPONENT=catalogue
 
 #this is how we import the function that are declared in a different file using source
 
-source COMPONENT/common.sh
+source component/common.sh
 
 NODEJS  #calling function
 
