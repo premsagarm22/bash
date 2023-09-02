@@ -3,8 +3,8 @@
 #all the common functions are declared here
 
 set -e
-appuser=roboshop
-log="/tmp/${component}.log"
+APPUSER=roboshop
+LOGFILE="/tmp/${COMPONENT}.log"
 
 user_id=$(id -u)
 
@@ -36,7 +36,7 @@ statusfunction() {
 #creating user function
 create_user() {
 
-id ${appuser} &>> ${log}
+id ${APPUSER} &>> ${LOGFILE}
 if [ $? -ne 0 ]; then
   echo -n "creating application user account :"
   useradd roboshop
@@ -44,43 +44,43 @@ if [ $? -ne 0 ]; then
 fi    
 }
 
-#downloading component and extracting 
+#downloading COMPONENT and extracting 
 downloading_and_extracting() {
-echo -n "downlaoding the ${component} : "
-curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
-cd /home/${appuser}
-# rm -rf ${component}  &>> ${log}
-unzip -o /tmp/${component}.zip
+echo -n "downlaoding the ${COMPONENT} : "
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+cd /home/${APPUSER}
+# rm -rf ${COMPONENT}  &>> ${log}
+unzip -o /tmp/${COMPONENT}.zip
 statusfunction $?
 
-mv ${component}-main ${component}
-chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
+mv ${COMPONENT}-main ${COMPONENT}
+chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}/
 statusfunction $?
 }
 
 config_service() {
-echo -n "updating the ${component} systemfile: "
-# sed -ie 's/MONGO_DNSNAME/mongodb.roboshop-internal/g' /home/${appuser}/${component}/systemd.service
-sed -ie 's/CARTENDPOINT/cart.roboshop-internal/g' /home/${appuser}/${component}/systemd.service
-sed -ie 's/DBHOST/mongodb.roboshop-internal/g' /home/${appuser}/${component}/systemd.service
-mv /home/${appuser}/${component}/systemd.service /etc/systemd/system/${component}.service
+echo -n "updating the ${COMPONENT} systemfile: "
+# sed -ie 's/MONGO_DNSNAME/mongodb.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
+sed -ie 's/CARTENDPOINT/cart.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
+sed -ie 's/DBHOST/mongodb.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 echo -n "changing the ownership : "
 statusfunction $?
 
 
-echo -n "starting the ${component} service: "
+echo -n "starting the ${COMPONENT} service: "
 systemctl daemon-reload
-systemctl start ${component}  &>> ${log}
-systemctl enable ${component}  &>> ${log}
-systemctl status ${component} -l  &>> ${log}
+systemctl start ${COMPONENT}  &>> ${LOGFILE}
+systemctl enable ${COMPONENT}  &>> ${LOGFILE}
+systemctl status ${COMPONENT} -l  &>> ${loLOGFILEg}
 statusfunction $?
 
 }
 #creating nodejs
 Nodejs() {
-echo -e "\e[35m configuring t}${component} \e[0m"
+echo -e "\e[35m configuring t}${COMPONENT} \e[0m"
 
-echo -n "installing ${component} :"
+echo -n "installing ${COMPONENT} :"
 curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y|sudo bash -
 statusfunction $?
 
@@ -90,12 +90,12 @@ yum install nodejs -y
 statusfunction $?
 
 create_user       #calls create_user function that creates user account
-downloading_and_extracting   #download and extract the component
+downloading_and_extracting   #download and extract the COMPONENT
 
 
-echo -n "generating the ${component} artifacts :"
-cd /home/${appuser}/${component}/
-npm install  &>> ${log}
+echo -n "generating the ${COMPONENT} artifacts :"
+cd /home/${APPUSER}/${COMPONENT}/
+npm install  &>> ${LOGFILE}
 statusfunction $?  
 
 config_service
@@ -103,23 +103,23 @@ config_service
 }
 
 MVN_PACKAGE() {
-        echo -n "Generating the ${component} artifacts :"
-        cd /home/${appuser}/${component}/
+        echo -n "Generating the ${COMPONENT} artifacts :"
+        cd /home/${APPUSER}/${COMPONENT}/
         mvn clean package   &>> ${log}
-        mv target/${component}-1.0.jar ${component}.jar
+        mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
         statusfunction $?
 }
 
 JAVA() {
-        echo -e "\e[35m Configuring ${component} ......! \e[0m \n"
+        echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
 
         echo -n "Installing maven:"
-        yum install maven -y    &>> ${log}
+        yum install maven -y    &>> ${LOGFILE}
         statusfunction $? 
 
         create_user              # calls CREATE_USER function that creates user account.
 
-        downloading_and_extracting     # Downloads and extracts the components
+        downloading_and_extracting     # Downloads and extracts the COMPONENTs
 
         MVN_PACKAGE
 
@@ -128,26 +128,26 @@ JAVA() {
 }
 
 PYTHON() {
-        echo -e "\e[35m Configuring ${component} ......! \e[0m \n"
+        echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
 
         echo -n "Installing python:"
-        yum install python36 gcc python3-devel -y &>> ${log}
+        yum install python36 gcc python3-devel -y &>> ${LOGFILE}
         statusfunction $? 
 
         create_user              # calls CREATE_USER function that creates user account.
 
-        downloading_and_extracting     # Downloads and extracts the components
+        downloading_and_extracting     # Downloads and extracts the COMPONENTs
 
         echo -n "Generating the artifacts"
-        cd /home/${appuser}/${component}/ 
-        pip3 install -r requirements.txt    &>> ${log} 
+        cd /home/${APPUSER}/${COMPONENT}/ 
+        pip3 install -r requirements.txt    &>> ${LOGFILE} 
         statusfunction $?
 
         user_id=$(id -u roboshop)
         GROUPID=$(id -g roboshop)
 
-        echo -n "Updating the uid and gid in the ${component}.ini file"
-        sed -i -e "/^uid/ c uid=${user_id}" -e "/^gid/ c gid=${GROUPID}" /home/${appuser}/${component}/${component}.ini
+        echo -n "Updating the uid and gid in the ${COMPONENT}.ini file"
+        sed -i -e "/^uid/ c uid=${user_id}" -e "/^gid/ c gid=${GROUPID}" /home/${APPUSER}/${COMPONENT}/${COMPONENT}.ini
         statusfunction $?
 
         config_service
