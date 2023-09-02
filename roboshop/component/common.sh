@@ -35,23 +35,16 @@ statusfunction() {
 }
 
 #creating user function
-create_user() {
-id ${APPUSER}
-       if [ $? -ne 0 ]; then
-          echo -n "creating application user account :"
-          useradd roboshop
-          statusfunction $?
-       fi    
-}
 
-# CREATE_USER() {
-#         id ${APPUSER}  &>> ${LOGFILE} 
-#         if [ $? -ne 0 ] ; then 
-#             echo -n "Creating Application User Account :"
-#             useradd roboshop 
-#             stat $? 
-#         fi    
-# }
+
+CREATE_USER() {
+        id ${APPUSER}  &>> ${LOGFILE} 
+        if [ $? -ne 0 ] ; then 
+            echo -n "Creating Application User Account :"
+            useradd roboshop 
+            stat $? 
+        fi    
+}
 #downloading COMPONENT and extracting 
 
 downloading_and_extracting() {
