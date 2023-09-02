@@ -86,10 +86,9 @@ echo -n "installing ${COMPONENT} :"
 curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
 statusfunction $?
 
-
 echo -n "installing Nodejs :"
-yum install nodejs -y
-statusfunction $?
+yum install nodejs -y &>> ${LOGFILE}
+statusfunction $? 
 
 create_user       #calls create_user function that creates user account
 downloading_and_extracting   #download and extract the COMPONENT
