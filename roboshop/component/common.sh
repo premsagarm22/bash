@@ -90,7 +90,7 @@ NODEJS() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
-curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
+curl --silent --location -o yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
 statusfunction $?
 
 echo -n "installing Nodejs :"
