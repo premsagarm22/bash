@@ -46,9 +46,10 @@ fi
 }
 
 #downloading COMPONENT and extracting 
+
 downloading_and_extracting() {
 echo -n "downlaoding the ${COMPONENT} : "
-curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 cd /home/${APPUSER}
 # rm -rf ${COMPONENT}  &>> ${log}
 unzip -o /tmp/${COMPONENT}.zip
@@ -79,7 +80,7 @@ statusfunction $?
 }
 #creating nodejs
 NODEJS() {
-echo -e "\e[35m configuring t}${COMPONENT} \e[0m"
+echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
 curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y|sudo bash -
@@ -100,7 +101,6 @@ npm install  &>> ${LOGFILE}
 statusfunction $?  
 
 config_service
-
 }
 
 MVN_PACKAGE() {

@@ -1,9 +1,9 @@
 #!/bin/bash 
 # set -e
 
-# component=shipping
+# COMPONENT=shipping
 # appuser="roboshop"
-# log="/tmp/${component}.log"
+# log="/tmp/${COMPONENT}.log"
 
 # user_id=$(id -u)
 
@@ -61,7 +61,7 @@
 # statusfunction $?
 
 # echo -n "updating ip address: "
-# sed -ie "s/CARTENDPOINT/cart.roboshop-internal/" -e "s/DBHOST/mongodb.roboshop-internal/" /home/${appuser}/${component}/systemd.service
+# sed -ie "s/CARTENDPOINT/cart.roboshop-internal/" -e "s/DBHOST/mongodb.roboshop-internal/" /home/${appuser}/${COMPONENT}/systemd.service
 # statusfunction $?
 
 # echo -n "copying systemd files into running as service:"
@@ -78,10 +78,10 @@
 
 #!/bin/bash 
 
-component=shipping
+COMPONENT=shipping
 
 # This is how we import the functions that are declared in a different file using source 
 source component/common.sh
 JAVA # calling nodejs function.
 
-echo -e "\n \e[35m ${component} Installation Is Completed \e[0m \n"
+echo -e "\n \e[35m ${COMPONENT} Installation Is Completed \e[0m \n"

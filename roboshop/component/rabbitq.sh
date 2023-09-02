@@ -2,36 +2,36 @@
 
 set -e
 # Validate the user who is running the script is a root user or not.
-component=rabbitmq
+COMPONENT=rabbitmq
 
-source components/common.sh
+source component/common.sh
 
-echo -e "\e[35m Configuring ${component} ......! \e[0m \n"
+echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
 
-echo -n "Configuring ${component} repositories:"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> ${log}
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash  &>> ${log}
-stat $? 
+echo -n "Configuring ${COMPONENT} repositories:"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> ${LOGFILE}
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash  &>> ${LOGFILE}
+statusfunction $? 
 
-echo -n "Installing ${component} :"
-yum install rabbitmq-server -y  &>> ${log}
-stat $? 
+echo -n "Installing ${COMPONENT} :"
+yum install rabbitmq-server -y  &>> ${LOGFILE}
+statusfunction $? 
 
-echo -n "Starting ${component}:"
-systemctl enable rabbitmq-server   &>> ${log}
-systemctl start rabbitmq-server    &>> ${log}
-stat $? 
+echo -n "Starting ${COMPONENT}:"
+systemctl enable rabbitmq-server   &>> ${LOGFILE}
+systemctl start rabbitmq-server    &>> ${LOGFILE}
+statusfunction $? 
 
-sudo rabbitmqctl list_users | grep roboshop &>> ${log}
+sudo rabbitmqctl list_users | grep roboshop &>> ${LOGFILE}
 if [ $? -ne 0 ] ; then 
-    echo -n "Creating ${component} user account :"
-    rabbitmqctl add_user roboshop roboshop123 &>> ${log}
-    stat $? 
+    echo -n "Creating ${COMPONENT} user account :"
+    rabbitmqctl add_user roboshop roboshop123 &>> ${LOGFILE}
+    statusfunction $? 
 fi 
 
 echo -n "Configuring the permissions :"
-rabbitmqctl set_user_tags roboshop administrator     &>> ${log}
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"     &>> ${log}
-stat $?
+rabbitmqctl set_user_tags roboshop administrator     &>> ${LOGFILE}
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"     &>> ${LOGFILE}
+statusfunction $?
 
-echo -e "\e[35m ${component} Installation Is Completed \e[0m \n"
+echo -e "\e[35m ${COMPONENT} Installation Is Completed \e[0m \n"

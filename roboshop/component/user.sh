@@ -2,12 +2,12 @@
 
 set -e 
 
-user_id=$(id -u)
-component=user
-appuser=roboshop
-log="/tmp/${component}.log"
+USER_ID=$(id -u)
+COMPONENT=user
+APPUSER=roboshop
+LOGFILE="/tmp/${COMPONENT}.log"
 
-if [ $user_id -ne 0 ]; then
+if [ $USER_ID -ne 0 ]; then
   echo -e "\e[32m script is executed by the root user or with sudo privilege \e[0m"
   exit 1
 fi
@@ -22,16 +22,16 @@ statusfunction(){
     fi
 }
 
-echo -e "\e[35m configuring t}${component} \e[0m"
+echo -e "\e[35m configuring t}${COMPONENT} \e[0m"
 
-echo -n "installing ${component} :"
+echo -n "installing ${COMPONENT} :"
 curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y | sudo bash -
 
 echo -n "installing Nodejs :"
 yum install nodejs -y
 statusfunction $?
 
-id ${appuser} &>> ${log}
+id ${APPUSER} &>> ${log}
 
 if [ $? -ne 0 ]; then
   echo -n "creating application user account :"
@@ -39,30 +39,32 @@ if [ $? -ne 0 ]; then
   statusfunction $?
 fi    
 
-echo -n "downlaoding the ${component} : "
+echo -n "downlaoding the ${COMPONENT} : "
 curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
 cd /home/roboshop
 unzip -o /tmp/user.zip
 statusfunction $?
 
 echo -n "changing the ownership : "
-rm -rf ${component}
-mv ${component}-main ${component}
-chown -R ${appuser}:${appuser} /home/${appuser}/${component}/
+rm -rf ${COMPONENT}
+mv ${COMPONENT}-main ${COMPONENT}
+chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}/
 statusfunction $?
 
-echo -n "generating the ${component} artifacts :"
-cd /home/${appuser}/${component}/
+echo -n "generating the ${COMPONENT} artifacts :"
+cd /home/${APPUSER}/${COMPONENT}/
 npm install 
 statusfunction $?
 
-echo -n "updating the ${component} systemfile "
-sed -ie 's/MONGO_ENDPOINT/mongodb.roboshop-internal/' /home/roboshop/user/systemd.service
-sed -ie 's/REDIS_ENDPOINT/redis.roboshop-internal/' /home/roboshop/user/systemd.service
+echo -n "updating the ${COMPONENT} systemfile "
+sed -ie 's/MONGO_ENDPOINT/mongodb.roboshop-internal/' /home/roboshop/echo -n "updating the ${COMPONENT} systemfile "
+/systemd.service
+sed -ie 's/REDIS_ENDPOINT/redis.roboshop-internal/' /home/roboshop/echo -n "updating the ${COMPONENT} systemfile "
+/systemd.service
 statusfunction $?
 
 
-echo -n "starting the catalogue service :"
+echo -n "starting the ${COMPONENT} service :"
 mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl enable user
