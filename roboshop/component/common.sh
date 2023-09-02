@@ -36,11 +36,11 @@ statusfunction() {
 
 #creating user function
 create_user() {
-id ${APPUSER}
-   if [ $? -ne 0 ]; then
-     echo -n "creating application user account :"
-     useradd roboshop
-     statusfunction $?
+       id ${APPUSER}
+       if [ $? -ne 0 ] ; then
+          echo -n "creating application user account :"
+          useradd roboshop
+          statusfunction $?
    fi    
 }
 
