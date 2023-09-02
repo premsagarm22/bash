@@ -1,14 +1,14 @@
 #!/bin/bash
 
-component=catalogue
+COMPONENT=catalogue
 
 #this is how we import the function that are declared in a different file using source
 
-source component/common.sh
+source COMPONENT/common.sh
 
 Nodejs  #calling function
 
-echo -e "\n \e[35m ${component} installing is completed \e[0m \n"
+echo -e "\n \e[35m ${COMPONENT} installing is completed \e[0m \n"
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
