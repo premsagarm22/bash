@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 COMPONENT=catalogue
 
 #this is how we import the function that are declared in a different file using source
