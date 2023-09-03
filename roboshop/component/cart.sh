@@ -20,7 +20,7 @@ statusfunction() {
 }
 
 echo -n "downloanding cart compoNent:"
-curl --silent --location yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y|sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_16.x |sudo bash - &>> ${LOGFILE}
 yum install nodejs -y
 statusfunction $?
 
@@ -41,10 +41,9 @@ curl -s -L -o /tmp/cart.zip "https://github.com/stans-robot-project/${COMPONENT}
 cd /home/roboshop
 unzip -o /tmp/${COMPONENT}.zip
 mv ${COMPONENT}-main cart
-cd ${COMPONENT}
 npm install
-sed -ie "s/REDIS_ENDPOINT/172.31.41.73/g" /home/roboshop/${COMPONENT}/systemd.servicee
-sed -ie "s/CATALOGUE_ENDPOINT/172.31.45.192/g" /home/roboshop/${COMPONENT}/systemd.servicee
+sed -ie "s/REDIS_ENDPOINT/redis.roboshop-internal/g" /home/roboshop/${COMPONENT}/systemd.servicee
+sed -ie "s/CATALOGUE_ENDPOINT/catalogue.roboshop-internal/g" /home/roboshop/${COMPONENT}/systemd.servicee
 statusfunction $?
 
 
