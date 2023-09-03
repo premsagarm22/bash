@@ -3,6 +3,7 @@
 set -e
 
 COMPONENT=catalogue
+APPUSER=roboshop
 
 #this is how we import the function that are declared in a different file using source
 
