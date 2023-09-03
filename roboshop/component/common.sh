@@ -42,7 +42,7 @@ CREATE_USER() {
         if [ $? -ne 0 ] ; then 
             echo -n "Creating Application User Account :"
             useradd roboshop 
-            stat $? 
+            statusfunction $? 
         fi    
 }
 #downloading COMPONENT and extracting 
