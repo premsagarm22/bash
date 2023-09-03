@@ -71,6 +71,7 @@ systemctl enable user
 systemctl restart user
 statusfunction $?
 
+set -x
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
 # systemctl start catalogue
