@@ -79,7 +79,8 @@ systemctl status ${COMPONENT} -l  &>> ${loLOGFILEg}
 statusfunction $?
 }
 
-#creating nodejs
+#creating nodejs npm install -g npm@latest
+
 NODEJS() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
@@ -89,6 +90,8 @@ statusfunction $?
 
 echo -n "installing Nodejs :"
 yum install nodejs -y &>> ${LOGFILE}
+npm install -g npm@latest
+
 statusfunction $? 
 
 CREATE_USER   #calls create_user function that creates user account
