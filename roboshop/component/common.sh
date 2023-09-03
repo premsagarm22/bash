@@ -91,14 +91,13 @@ echo -n "installing Nodejs :"
 yum install nodejs -y &>> ${LOGFILE}
 statusfunction $? 
 
-echo -n "CREATING USER:"
-CREATE_USER #calls create_user function that creates user account
+CREATE_USER   #calls create_user function that creates user account
+
 downloading_and_extracting  #download and extract the COMPONENT
-statusfunction $? 
 
 echo -n "generating the ${COMPONENT} artifacts :"
-cd /home/${APPUSER}/${COMPONENT}
-npm install  &>> ${LOGFILE}
+cd /home/${APPUSER}/${COMPONENT}/
+npm install &>> ${LOGFILE}
 statusfunction $?
 
 config_service
