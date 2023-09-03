@@ -86,10 +86,10 @@ echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
 npm install
-curl --silent --location -o yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
 statusfunction $?
 
 echo -n "installing Nodejs :"
+curl --silent --location -o yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
 yum install nodejs -y &>> ${LOGFILE}
 statusfunction $? 
 
