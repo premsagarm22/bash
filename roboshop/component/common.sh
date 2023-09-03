@@ -90,7 +90,7 @@ statusfunction $?
 
 echo -n "installing Nodejs :"
 yum install nodejs -y &>> ${LOGFILE}
-npm install -g 
+npm install
 
 statusfunction $? 
 
