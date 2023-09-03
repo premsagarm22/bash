@@ -98,7 +98,7 @@ downloading_and_extracting  #download and extract the COMPONENT
 
 echo -n "generating the ${COMPONENT} artifacts :"
 cd /home/${APPUSER}/${COMPONENT}/
-yum npm install &>> ${LOGFILE}
+npm install &>> ${LOGFILE}
 statusfunction $?
 
 config_service
