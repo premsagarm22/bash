@@ -109,7 +109,7 @@ config_service
 MVN_PACKAGE() {
         echo -n "Generating the ${COMPONENT} artifacts :"
         cd /home/${APPUSER}/${COMPONENT}/
-        mvn clean package   &>> ${log}
+        mvn clean package   &>> ${LOGFILE}
         mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
         statusfunction $?
 }
