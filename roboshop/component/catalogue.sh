@@ -8,7 +8,7 @@ COMPONENT=catalogue
 
 source component/common.sh
 
-NODEJS  #calling function
+NODEJS #calling function
 
 echo -e "\n \e[35m ${COMPONENT} installing is completed \e[0m \n"
 

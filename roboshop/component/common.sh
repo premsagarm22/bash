@@ -51,18 +51,18 @@ downloading_and_extracting() {
 echo -n "downlaoding the ${COMPONENT} : "
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 cd /home/${APPUSER}
-# rm -rf ${COMPONENT}  &>> ${log}
+rm -rf ${COMPONENT}  &>> ${LOGFILE} 
 unzip -o /tmp/${COMPONENT}.zip
 statusfunction $?
 
 mv ${COMPONENT}-main ${COMPONENT}
-chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}/
+chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}
 statusfunction $?
 }
 
 config_service() {
 echo -n "updating the ${COMPONENT} systemfile: "
-sed -ie 's/MONGO_DNSNAME/mongodb.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
+sed -ie 's/MONGO_DNSNAME/172.31.45.60/g' /home/${APPUSER}/${COMPONENT}/systemd.service
 # sed -ie 's/CARTENDPOINT/cart.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
 # sed -ie 's/DBHOST/mongodb.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
