@@ -39,7 +39,7 @@ statusfunction() {
 
 CREATE_USER() {
         id ${APPUSER}  &>> ${LOGFILE} 
-        if [ $? -eq 0 ] ; then 
+        if [ $? -ne 0 ] ; then 
             echo -n "Creating Application User Account :"
             useradd roboshop 
             statusfunction $? 
