@@ -121,7 +121,7 @@ JAVA() {
         yum install maven -y    &>> ${LOGFILE}
         statusfunction $? 
 
-        create_user              # calls CREATE_USER function that creates user account.
+        CREATE_USER              # calls CREATE_USER function that creates user account.
 
         downloading_and_extracting     # Downloads and extracts the COMPONENTs
 
