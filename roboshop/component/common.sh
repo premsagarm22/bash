@@ -75,7 +75,7 @@ echo -n "starting the ${COMPONENT} service: "
 systemctl daemon-reload
 systemctl start ${COMPONENT}  &>> ${LOGFILE}
 systemctl enable ${COMPONENT}  &>> ${LOGFILE}
-systemctl status ${COMPONENT} -l  &>> ${loLOGFILEg}
+systemctl status ${COMPONENT} -l  &>> ${LOGFILE}
 statusfunction $?
 }
 
