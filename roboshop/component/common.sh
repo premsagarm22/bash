@@ -85,7 +85,7 @@ NODEJS() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
 echo -n "configuring ${COMPONENT} repo :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x |sudo bash - &>> ${LOGFILE} yum install nodejs -y &>> ${LOGFILE}
+curl --silent --location https://rpm.nodesource.com/setup_16.x |sudo bash - &>> ${LOGFILE}
 statusfunction $? 
 
 echo -n "Installing NodeJS :"
