@@ -97,9 +97,9 @@ downloading_and_extracting  #download and extract the COMPONENT
 statusfunction $? 
 
 echo -n "generating the ${COMPONENT} artifacts :"
-cd /home/${APPUSER}/${COMPONENT}/
+cd /home/${APPUSER}/${COMPONENT}
 npm install  &>> ${LOGFILE}
-statusfunction $?  
+statusfunction $?
 
 config_service
 }
