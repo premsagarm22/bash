@@ -85,13 +85,12 @@ NODEJS() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
+npm install
 curl --silent --location -o yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
 statusfunction $?
 
 echo -n "installing Nodejs :"
 yum install nodejs -y &>> ${LOGFILE}
-npm install
-
 statusfunction $? 
 
 CREATE_USER   #calls create_user function that creates user account
