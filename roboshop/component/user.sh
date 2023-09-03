@@ -25,7 +25,7 @@ statusfunction(){
 echo -e "\e[35m configuring t}${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x |sudo bash - &>> ${LOGFILE}
+curl --silent --location  -o https://rpm.nodesource.com/setup_16.x |sudo bash - &>> ${LOGFILE}
 
 echo -n "installing Nodejs :"
 yum install nodejs -y
