@@ -85,7 +85,7 @@ NODEJS() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
 echo -n "installing ${COMPONENT} :"
-npm install
+npm install &>> ${LOGFILE}
 statusfunction $?
 
 echo -n "installing Nodejs :"
