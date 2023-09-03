@@ -50,7 +50,7 @@ CREATE_USER() {
 downloading_and_extracting() {
 echo -n "downlaoding the ${COMPONENT} : "
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
-cd /home/${APPUSER}
+cd ${APPUSER}
 rm -rf ${COMPONENT}  &>> ${LOGFILE} 
 unzip -o /tmp/${COMPONENT}.zip
 statusfunction $?
