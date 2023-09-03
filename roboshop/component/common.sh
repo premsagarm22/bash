@@ -38,8 +38,8 @@ statusfunction() {
 
 
 CREATE_USER() {
-        # id ${APPUSER}  &>> ${LOGFILE} 
-        if [ $? -ne 0 ] ; then 
+        id ${APPUSER}  &>> ${LOGFILE} 
+        if [ $? -eq 0 ] ; then 
             echo -n "Creating Application User Account :"
             useradd roboshop 
             statusfunction $? 
@@ -50,7 +50,7 @@ CREATE_USER() {
 downloading_and_extracting() {
 echo -n "downlaoding the ${COMPONENT} : "
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
-cd ${APPUSER}
+cd /home/${APPUSER}
 rm -rf ${COMPONENT}  &>> ${LOGFILE} 
 unzip -o /tmp/${COMPONENT}.zip
 statusfunction $?
