@@ -84,14 +84,13 @@ statusfunction $?
 NODEJS() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m"
 
-echo -n "installing ${COMPONENT} :"
-npm install &>> ${LOGFILE}
-statusfunction $?
-
-echo -n "installing Nodejs :"
-curl --silent --location -o yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y| sudo bash -
-yum install nodejs -y &>> ${LOGFILE}
+echo -n "configuring ${COMPONENT} repo :"
+curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> ${LOGFILE} yum install nodejs -y &>> ${LOGFILE}
 statusfunction $? 
+
+echo -n "Installing NodeJS :"
+yum install nodejs -y   &>> ${LOGFILE} 
+statusfunction $?
 
 CREATE_USER   #calls create_user function that creates user account
 
