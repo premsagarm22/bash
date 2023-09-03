@@ -69,7 +69,7 @@ sed -ie 's/MONGO_DNSNAME/172.31.45.60/g' /home/${APPUSER}/${COMPONENT}/systemd.s
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 echo -n "changing the ownership : "
 statusfunction $?
-
+}
 
 echo -n "starting the ${COMPONENT} service: "
 systemctl daemon-reload
