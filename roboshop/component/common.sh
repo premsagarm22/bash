@@ -63,7 +63,7 @@ statusfunction $?
 
 config_service() {
 echo -n "updating the ${COMPONENT} systemfile: "
-# sed -ie 's/MONGO_DNSNAME/172.31.45.60/g' /home/${APPUSER}/${COMPONENT}/systemd.service
+sed -ie 's/MONGO_DNSNAME/172.31.45.60/g' /home/${APPUSER}/${COMPONENT}/systemd.service
 # sed -ie 's/CARTENDPOINT/cart.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
 # sed -ie 's/DB_HOST/mysql.roboshop-internal/g' /home/${APPUSER}/${COMPONENT}/systemd.service
 # sed -ie "s/REDIS_ENDPOINT/redis.roboshop-internal/g" /home/roboshop/${COMPONENT}/systemd.service
