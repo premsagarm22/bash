@@ -7,7 +7,7 @@
 # DNS record hosted zone id
 
 AMI_ID="ami-0c1d144c8fdd8d690"
-INSTANCE_TYPE="t3.micre"
+INSTANCE_TYPE="t3.micro"
 SECURITY_GROUP="sg-071baaff364d61305"
 COMPONENT=$1
 if [ -z $1 ]; then
@@ -21,4 +21,4 @@ fi
 #EACH AND EVERY RESOURCE THAT WE CREATE IN ENTERPRISE(ORGANISATION LEVEL) WILL HAVE TAGS.
 # BU,ENV,APP:COST_CENTER
 
-aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SECURITY_GROUP} --Tag-specification "Resourcetype=instance,Tags=[{key=Name,Value=${COMPONENT}}]"
+aws ec2 run-instances --image-id ami-0c1d144c8fdd8d690 --instance-type ${INSTANCE_TYPE} --security-group-ids ${SECURITY_GROUP} --Tag-specification "Resourcetype=instance,Tags=[{key=Name,Value=${COMPONENT}}]"
