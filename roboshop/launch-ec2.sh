@@ -21,4 +21,4 @@ fi
 #EACH AND EVERY RESOURCE THAT WE CREATE IN ENTERPRISE(ORGANISATION LEVEL) WILL HAVE TAGS.
 # BU,ENV,APP:COST_CENTER
 
-aws ec2 run-instances --image-id ${AMI_ID} --count 1 --instance-type ${INSTANCE_TYPE} --security-group-ids ${SECURITY_GROUP} --tag-specification "Resourcetype=instance,tags=[{key=Name,Value=${COMPONENT}}]"
+aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SECURITY_GROUP} --Tag-specification "Resourcetype=instance,Tags=[{key=Name,Value=${COMPONENT}}]"
