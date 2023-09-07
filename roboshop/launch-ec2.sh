@@ -12,7 +12,7 @@ SECURITY_GROUP="sg-071baaff364d61305"
 COMPONENT=$1
 if [ -z $1 ]; then
   echo -e "\e[33m COMPONENT name is needed\e[0m"
-  echo -e "\e[35m ex;usage $bash ec2.sh \e[0m"
+  echo -e "\e[35m ex;usage $bash launch-ec2.sh \e[0m"
   exit 1
 fi  
 
