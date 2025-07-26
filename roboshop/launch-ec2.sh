@@ -6,7 +6,7 @@
 # instance_you_need
 # DNS record hosted zone id
 
-AMI_ID="ami-0c1d144c8fdd8d690"
+AMI_ID="ami-007e7b9e7234f7f8d"
 INSTANCE_TYPE="t3.micro"
 SECURITY_GROUP="sg-071baaff364d61305"
 COMPONENT=$1
